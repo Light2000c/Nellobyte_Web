@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.upper-contents{
+background-image: url('assets/img/clubkonnect_image-50.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.first-text{
+   color: #e82687;
+  }

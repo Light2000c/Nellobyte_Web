@@ -1,0 +1,19 @@
+.icon-contents-wrapper{
+  height: 100% !important;
+}
+.icon-contents{
+  height: 100% !important;
+display: flex;
+justify-content: center;
+}
+
+.icons{
+ transform: scale(3.5);
+ margin-top: auto;
+ margin-bottom: auto;
+ color: #304ffe;
+}
+
+a{
+  color: #e82687;
+}
