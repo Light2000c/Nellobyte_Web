@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBundleComponent implements OnInit {
 
+  title: String = "Buy Databundle";
   constructor() { }
 
   ngOnInit(): void {

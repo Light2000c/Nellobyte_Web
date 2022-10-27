@@ -8,6 +8,8 @@ import { AuthProvider } from 'src/app/providers/auth/auth';
 })
 export class AirtimeRechargeComponent implements OnInit {
 
+  title: String = "Recharge Airtime";
+
   constructor(
     private authProvider: AuthProvider,
   ) { }

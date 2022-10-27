@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentNotificationComponent implements OnInit {
 
+  title: String = "Payment Resolution Center";
   constructor() { }
 
   ngOnInit(): void {

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundBettingComponent implements OnInit {
 
+  title: String = "Fund your betting wallet instantly";
   constructor() { }
 
   ngOnInit(): void {

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CableTVRechargeComponent implements OnInit {
 
+  title: String = "Pay DStv, GOtv and StarTimes Subscription - Instant Activation";
+
   constructor() { }
 
   ngOnInit(): void {

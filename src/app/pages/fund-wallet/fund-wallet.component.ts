@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundWalletComponent implements OnInit {
 
+  title: String = "Deposit Money";
+
   constructor() { }
 
   ngOnInit(): void {

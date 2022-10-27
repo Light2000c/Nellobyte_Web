@@ -3,8 +3,13 @@
 background-image: url('assets/img/clubkonnect_image-50.jpg');
 background-size: cover;
 background-repeat: no-repeat;
-
+background-position: center;
 }
 .first-text{
    color: #e82687;
   }
+
+  .form-control{
+    height: 45px;
+  }
+

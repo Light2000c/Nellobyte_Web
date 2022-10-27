@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaecEpinComponent implements OnInit {
 
+  title: String = "Purchase WAEC e-PIN > Instant Activation";
   constructor() { }
 
   ngOnInit(): void {

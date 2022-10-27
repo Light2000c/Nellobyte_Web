@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FundWalletComponent } from './pages/fund-wallet/fund-wallet.component';
 import { AirtimeRechargeComponent } from './pages/offerings/airtime-recharge/airtime-recharge.component';
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: 'PaymentNotification',
     component: PaymentNotificationComponent,
+  },
+  {
+    path: 'ContactUs',
+    component: ContactUsComponent,
   },
 ];
 

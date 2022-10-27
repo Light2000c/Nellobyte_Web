@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferMoneyComponent implements OnInit {
 
+  title: String = "Transfer Money";
   constructor() { }
 
   ngOnInit(): void {

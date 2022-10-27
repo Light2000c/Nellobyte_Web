@@ -19,6 +19,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FundWalletComponent } from './pages/fund-wallet/fund-wallet.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
 import { PaymentNotificationComponent } from './pages/payment-notification/payment-notification.component';
+import { SubHeaderComponent } from './components/sub-header/sub-header.component';
+import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
+import { SideItemsComponent } from './components/side-items/side-items.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { PaymentNotificationComponent } from './pages/payment-notification/payme
     WaecEpinComponent,
     FundWalletComponent,
     TransferMoneyComponent,
-    PaymentNotificationComponent
+    PaymentNotificationComponent,
+    SubHeaderComponent,
+    SubmitButtonComponent,
+    SideItemsComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

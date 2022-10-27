@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrintAirtimeComponent implements OnInit {
 
+  title: String = "Print airtime e-pin";
   constructor() { }
 
   ngOnInit(): void {
