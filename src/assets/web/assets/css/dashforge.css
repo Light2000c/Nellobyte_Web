@@ -3323,7 +3323,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
-  
+
   .btn-group-vertical > .btn,
   .ui-datepicker-buttonpane .btn-group-vertical > button,
   .sp-container .btn-group-vertical > button,
@@ -3890,7 +3890,7 @@ input[type="button"].btn-block {
       transition: none; } }
 
 .nav {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
