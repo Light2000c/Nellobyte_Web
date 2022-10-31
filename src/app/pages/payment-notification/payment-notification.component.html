@@ -1,93 +1,122 @@
-<app-header></app-header>
-<div class="content content-fixed bd-b upper-contents">
-  <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+<app-header>
+  <div class="content-body">
     <div class="d-sm-flex align-items-center justify-content-between">
       <div>
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb breadcrumb-style1 mg-b-10 ">
-            <li class="breadcrumb-item"><a  href="#" style="color: #e82687;">MYACCOUNT</a></li>
-            <li class="breadcrumb-item active text-light" aria-current="page">ROBOT BANK DEPOSIT NOTIFY US CUSTOMER</li>
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item">
+              <a href="#" style="color: #e82687">MYACCOUNT</a>
+            </li>
+            <li class="breadcrumb-item active text-light" aria-current="page">
+              ROBOT BANK DEPOSIT NOTIFY US CUSTOMER
+            </li>
           </ol>
         </nav>
         <h4 class="mg-b-0 text-light">{{ title }}</h4>
       </div>
     </div>
-  </div><!-- container -->
-</div><!-- content -->
 
-<div class="content">
-  <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
     <div class="media row">
       <div class="col-lg-8 mb-5">
-
         <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
           <div class="pd-t-20 wd-100p">
-
             <div class="alert alert-danger">
-              warning: Your account will be immediately suspended if you notify our without first making payment.
+              warning: Your account will be immediately suspended if you notify
+              our without first making payment.
             </div>
 
             <div class="form-group">
               <label>Choose our bank you paid to</label>
-              <select type="text" class="form-control bg-light" placeholder="Enter your email address">
+              <select
+                type="text"
+                class="form-control bg-light"
+                placeholder="Enter your email address"
+              >
                 <option class="">select bank you paid to</option>
                 <option class="">Wema Bank Plc</option>
                 <option class="">ATM Card</option>
               </select>
-              </div>
+            </div>
 
             <div class="form-group">
               <label>Deposit Type</label>
-              <select type="text" class="form-control bg-light" placeholder="Enter your email address">
+              <select
+                type="text"
+                class="form-control bg-light"
+                placeholder="Enter your email address"
+              >
                 <option class="" selected>Select Deposit Type</option>
                 <option class="">ATM Card</option>
                 <option class="">Cash Deposit</option>
                 <option class="">Internet Bank Transfer</option>
                 <option class="">Mobile Banking</option>
               </select>
-              </div>
+            </div>
 
-              <div class="form-group">
-                <label>Amount Paid</label>
-                <input type="text" class="form-control bg-light" placeholder="Phone Number">
-              </div>
+            <div class="form-group">
+              <label>Amount Paid</label>
+              <input
+                type="text"
+                class="form-control bg-light"
+                placeholder="Phone Number"
+              />
+            </div>
 
-              <div class="form-group">
-                <label>Depositor's Name</label>
-                <input type="text" class="form-control bg-light" placeholder="Amount">
-              </div>
+            <div class="form-group">
+              <label>Depositor's Name</label>
+              <input
+                type="text"
+                class="form-control bg-light"
+                placeholder="Amount"
+              />
+            </div>
 
-              <div>
-                <p>(type your full names exactly as it appears on your bank account)</p>
-              </div>
+            <div>
+              <p>
+                (type your full names exactly as it appears on your bank
+                account)
+              </p>
+            </div>
 
-              <div class="form-group">
-                <label>Narration/Remark</label>
-                <input type="text" class="form-control bg-light" placeholder="Amount">
-              </div>
+            <div class="form-group">
+              <label>Narration/Remark</label>
+              <input
+                type="text"
+                class="form-control bg-light"
+                placeholder="Amount"
+              />
+            </div>
 
-              <div>
-              <p>(copy and paste the narration exactly as it appears on your debit alert sms/email/bank statement)</p>
+            <div>
+              <p>
+                (copy and paste the narration exactly as it appears on your
+                debit alert sms/email/bank statement)
+              </p>
             </div>
 
             <div class="form-group">
               <label>Payment Date</label>
-              <input type="datetime" class="form-control bg-light" placeholder="Amount">
+              <input
+                type="datetime"
+                class="form-control bg-light"
+                placeholder="Amount"
+              />
             </div>
 
-
-           <app-submit-button name="Fund Wallet"></app-submit-button>
-            <button class="btn btn-brand-02 btn-block btn-lg mt-4">Go Back</button>
-
+            <app-submit-button name="Fund Wallet"></app-submit-button>
+            <button class="btn btn-brand-02 btn-block btn-lg mt-4">
+              Go Back
+            </button>
           </div>
-        </div><!-- sign-wrapper -->
-
-      </div><!-- media-body -->
+        </div>
+        <!-- sign-wrapper -->
+      </div>
+      <!-- media-body -->
 
       <div class="col-lg-4">
-     <app-side-items></app-side-items>
+        <app-side-items></app-side-items>
       </div>
-
-    </div><!-- media -->
-  </div><!-- container -->
-</div><!-- content -->
+    </div>
+    <!-- media -->
+  </div>
+</app-header>
