@@ -1,252 +1,283 @@
 <app-header>
   <div class="content-body">
     <div class="d-sm-flex align-items-center justify-content-between mb-3">
-    <div>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-          <li class="breadcrumb-item">
-            <a href="#" style="color: #e82687">MYACCOUNT</a>
-          </li>
-          <li class="breadcrumb-item active text-dark" aria-current="page">DASHBOARD</li>
-        </ol>
-      </nav>
-      <h4 class="mg-b-0 tx-spacing--1">WELCOME TO DASHBOARD</h4>
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item">
+              <a href="#" style="color: #e82687">MYACCOUNT</a>
+            </li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">
+              DASHBOARD
+            </li>
+          </ol>
+        </nav>
+        <h4 class="mg-b-0 tx-spacing--1">WELCOME TO DASHBOARD</h4>
+      </div>
+      <div class="d-none d-md-block">
+        <button
+          class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5 text-light border-0"
+          style="background-color: #e82687"
+        >
+          <i data-feather="credit-card" class="wd-10 mg-r-5 text-light"></i>
+          Deposit Money
+        </button>
+        <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5">
+          <i data-feather="wallet" class="wd-10 mg-r-5"></i> Withdraw Commission
+        </button>
+      </div>
     </div>
-    <div class="d-none d-md-block">
-      <button
-        class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5 text-light border-0"
-        style="background-color: #e82687"
-      >
-        <i data-feather="credit-card" class="wd-10 mg-r-5 text-light"></i>
-        Deposit Money
-      </button>
-      <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5">
-        <i data-feather="wallet" class="wd-10 mg-r-5"></i> Withdraw Commission
-      </button>
+
+    <!-- Beginning of row -->
+    <div class="row">
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="row row-sm" style="height: 100%">
+              <div class="col-7">
+                <h6
+                  class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
+                >
+                  WALLET BALANCE
+                </h6>
+                <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">₦0.00</h3>
+                <p class="tx-11 tx-color-03 mg-b-0"></p>
+              </div>
+              <div class="col-5 icon-contents-wrapper">
+                <div class="chart-ten icon-contents">
+                  <i class="fa fa-wallet icons"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="row row-sm" style="height: 100%">
+              <div class="col-7">
+                <h6
+                  class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
+                >
+                  COMMISSION
+                </h6>
+                <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">₦0.00</h3>
+                <p class="tx-12 tx-color-03 mg-b-0">
+                  <a href=""> View commision history >></a>
+                </p>
+                <p class="tx-12 tx-color-03 mg-b-0">
+                  <a href="">View referal/downline >></a>
+                </p>
+              </div>
+              <div class="col-5 icon-contents-wrapper">
+                <div class="chart-ten icon-contents">
+                  <i class="fa fa-percent icons"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="row row-sm" style="height: 100%">
+              <div class="col-7">
+                <h6
+                  class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
+                >
+                  MEMBERSHIP
+                </h6>
+                <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">VIP</h3>
+                <p class="tx-12 tx-color-03 mg-b-0">
+                  Expires (27th September, 2023)
+                </p>
+                <p class="tx-12 tx-color-03 mg-b-0">
+                  <a href="">Renew Membership >></a>
+                </p>
+                <p class="tx-12 tx-color-03 mg-b-0">
+                  <a href="">KYC Verification >></a>
+                </p>
+              </div>
+              <div class="col-5 icon-contents-wrapper">
+                <div class="chart-ten icon-contents">
+                  <i class="fa fa-user-plus icons"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
     </div>
+    <!-- end of row -->
 
-  </div>
-
-
-
-  <!-- Beginning of row -->
-  <div class="row">
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="row row-sm" style="height: 100%">
-            <div class="col-7">
+    <!-- Beginning of row -->
+    <div class="row">
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="">
               <h6
                 class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
               >
-                WALLET BALANCE
+                SELF SERVICE
               </h6>
-              <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">₦0.00</h3>
+              <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+                Instantly resolve issues with <a href=""> ATMCard</a>,
+                <a href="">BankDeposit</a>, <a href=""> Airtime</a>,
+                <a href="">Databundle</a>, <a href=""> CableTV</a>,
+                <a href=""> Electricity</a>, <a href=""> Betting</a>,
+                <a href=""> WAEC</a>
+              </h6>
               <p class="tx-11 tx-color-03 mg-b-0"></p>
             </div>
-            <div class="col-5 icon-contents-wrapper">
-              <div class="chart-ten icon-contents">
-                <i class="fa fa-wallet icons"></i>
-              </div>
-            </div>
           </div>
+          <!-- card-body -->
         </div>
-        <!-- card-body -->
+        <!-- card -->
       </div>
-      <!-- card -->
-    </div>
 
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="row row-sm" style="height: 100%">
-            <div class="col-7">
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="">
               <h6
                 class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
               >
-                COMMISSION
+                HELP
               </h6>
-              <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">₦0.00</h3>
-              <p class="tx-12 tx-color-03 mg-b-0">
-                <a href=""> View commision history >></a>
-              </p>
-              <p class="tx-12 tx-color-03 mg-b-0">
-                <a href="">View referal/downline >></a>
-              </p>
-            </div>
-            <div class="col-5 icon-contents-wrapper">
-              <div class="chart-ten icon-contents">
-                <i class="fa fa-percent icons"></i>
-              </div>
+              <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+                Open a ticket for complaint, feedback or unresolved issues >>
+                <a href=""> CLICK HERE</a>
+              </h6>
             </div>
           </div>
+          <!-- card-body -->
         </div>
-        <!-- card-body -->
+        <!-- card -->
       </div>
-      <!-- card -->
-    </div>
 
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="row row-sm" style="height: 100%">
-            <div class="col-7">
+      <div class="col-lg-4 p-1">
+        <div class="card shadow border-0 m-1" style="height: 100%">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="">
               <h6
                 class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
               >
-                MEMBERSHIP
+                DEPOSIT NOTIFICATION
               </h6>
-              <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">VIP</h3>
-              <p class="tx-12 tx-color-03 mg-b-0">
-                Expires (27th September, 2023)
-              </p>
-              <p class="tx-12 tx-color-03 mg-b-0">
-                <a href="">Renew Membership >></a>
-              </p>
-              <p class="tx-12 tx-color-03 mg-b-0">
-                <a href="">KYC Verification >></a>
-              </p>
-            </div>
-            <div class="col-5 icon-contents-wrapper">
-              <div class="chart-ten icon-contents">
-                <i class="fa fa-user-plus icons"></i>
-              </div>
+              <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+                Have you made a payment but your wallet was not credited? >>
+                <a href="">NOTIFY US</a>
+              </h6>
             </div>
           </div>
+          <!-- card-body -->
         </div>
-        <!-- card-body -->
+        <!-- card -->
       </div>
-      <!-- card -->
+    </div>
+    <!-- end of row -->
+
+    <div class="row mt-3 ">
+      <div class="col-lg-8 p-1">
+        <div class="card mb-4" style="height: auto">
+          <div class="card-body pd-y-20 pd-x-25">
+            <div class="mb-5">
+              <h6
+                class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
+              >
+                Disclaimer (Beware of scammers)
+              </h6>
+              <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+                Please be mindful of fake websites/email posing as
+                clubkonnect.com Do not disclose your password to any one, as we
+                will never ask you to send your password. if you feel your
+                account has been compromised, kindly change or reset your
+                password immediately.
+              </h6>
+            </div>
+
+            <div class="">
+              <p>
+                Join Our Referral Program To Earn Extra Income >>
+                <a href="">CLICK HERE</a>
+              </p>
+              <p>
+                Recharge card printing (Airtime & Data e-PIN)) >>
+                <a href="">CLICK HERE</a>
+              </p>
+              <p>
+                Fund your betting wallet e.g. bet9ja, nairabet e.t.c. >>
+                <a href="">CLICK HERE</a>
+              </p>
+              <p>Purchase WAEC e-PIN >> CLICK HERE <a href="">CLICK HERE</a></p>
+            </div>
+
+            <div>
+              <p><a href="">Create Your Own Website (Online Store)</a></p>
+              <p>
+                Referral Link:
+                <a href="">https://www.clubkonnect.com/?id=CK100425062</a>
+              </p>
+            </div>
+
+            <div class="text-right">
+              <p>
+                <a href="">Edit Profile </a> <> <a href=""> Change Password</a>
+              </p>
+            </div>
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+
+        <div class="card mb-2">
+          <div class="m-2">
+            <p class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+              <a href="">View All Deposits</a>
+            </p>
+            <p class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+              <a href="">View All Transactions</a>
+            </p>
+            <p class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
+              Recent Transactions
+            </p>
+          </div>
+
+          <div class="table-responsive transaction-table">
+            <table class="table table-bordered">
+              <thead class="text-light" style="background-color: #1e3995">
+                <tr>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>ID</th>
+                  <th>Network</th>
+                  <th>Type</th>
+                  <th>Amount(₦)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- table-responsive -->
+        </div>
+      </div>
+
+      <div class="col">
+        <app-side-items></app-side-items>
+      </div>
     </div>
   </div>
-  <!-- end of row -->
-
-  <!-- Beginning of row -->
-  <div class="row">
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="">
-            <h6
-              class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
-            >
-              SELF SERVICE
-            </h6>
-            <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
-              Instantly resolve issues with <a href=""> ATMCard</a>,
-              <a href="">BankDeposit</a>, <a href=""> Airtime</a>,
-              <a href="">Databundle</a>, <a href=""> CableTV</a>,
-              <a href=""> Electricity</a>, <a href=""> Betting</a>,
-              <a href=""> WAEC</a>
-            </h6>
-            <p class="tx-11 tx-color-03 mg-b-0"></p>
-          </div>
-        </div>
-        <!-- card-body -->
-      </div>
-      <!-- card -->
-    </div>
-
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="">
-            <h6
-              class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
-            >
-              HELP
-            </h6>
-            <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
-              Open a ticket for complaint, feedback or unresolved issues >>
-              <a href=""> CLICK HERE</a>
-            </h6>
-          </div>
-        </div>
-        <!-- card-body -->
-      </div>
-      <!-- card -->
-    </div>
-
-    <div class="col-lg-4 p-1">
-      <div class="card shadow border-0 m-1" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="">
-            <h6
-              class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
-            >
-              DEPOSIT NOTIFICATION
-            </h6>
-            <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
-              Have you made a payment but your wallet was not credited? >>
-              <a href="">NOTIFY US</a>
-            </h6>
-          </div>
-        </div>
-        <!-- card-body -->
-      </div>
-      <!-- card -->
-    </div>
-  </div>
-  <!-- end of row -->
-
-  <div class="row mt-3">
-    <div class="col-lg-8 p-1">
-      <div class="card" style="height: 100%">
-        <div class="card-body pd-y-20 pd-x-25">
-          <div class="mb-5">
-            <h6
-              class="tx-12 tx-semibold tx-uppercase tx-spacing-1 tx-primary mg-b-5"
-            >
-              Disclaimer (Beware of scammers)
-            </h6>
-            <h6 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">
-              Please be mindful of fake websites/email posing as clubkonnect.com
-              Do not disclose your password to any one, as we will never ask you
-              to send your password. if you feel your account has been
-              compromised, kindly change or reset your password immediately.
-            </h6>
-          </div>
-
-          <div class="">
-            <p>
-              Join Our Referral Program To Earn Extra Income >>
-              <a href="">CLICK HERE</a>
-            </p>
-            <p>
-              Recharge card printing (Airtime & Data e-PIN)) >>
-              <a href="">CLICK HERE</a>
-            </p>
-            <p>
-              Fund your betting wallet e.g. bet9ja, nairabet e.t.c. >>
-              <a href="">CLICK HERE</a>
-            </p>
-            <p>Purchase WAEC e-PIN >> CLICK HERE <a href="">CLICK HERE</a></p>
-          </div>
-
-          <div>
-            <p><a href="">Create Your Own Website (Online Store)</a></p>
-            <p>
-              Referral Link:
-              <a href="">https://www.clubkonnect.com/?id=CK100425062</a>
-            </p>
-          </div>
-
-          <div class="text-right">
-            <p>
-              <a href="">Edit Profile </a> <> <a href=""> Change Password</a>
-            </p>
-          </div>
-        </div>
-        <!-- card-body -->
-      </div>
-      <!-- card -->
-    </div>
-
-    <div class="col">
-    <app-side-items></app-side-items>
-    </div>
-
-  </div>
-
-</div>
 </app-header>

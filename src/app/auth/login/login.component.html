@@ -37,7 +37,9 @@
                   placeholder="Phone Number"
                   [class.invalid]="!loginForm.controls.PhoneNumber.valid && submitAttempt"
                 />
-                <small class="text-danger" *!ngIf="loginForm.controls.PhoneNumber.valid && submitAttempt">something</small>
+                <small class="text-danger" *ngIf="!loginForm.controls.PhoneNumber.valid && submitAttempt">
+                 Please enter a valid Phone Number
+                </small>
               </div>
               <div class="form-group">
                 <div class="d-flex justify-content-between mg-b-5">
@@ -51,9 +53,10 @@
                   placeholder="Enter your password"
                   [class.invalid]="!loginForm.controls.Password.valid && submitAttempt"
                 />
-                <small class="text-danger" *ngIf="!loginForm.controls.Password.valid && submitAttempt"></small>
+                <small class="text-danger" *ngIf="!loginForm.controls.Password.valid && submitAttempt">
+                  Please enter your password
+                </small>
               </div>
-              <!-- <button class="btn btn-brand-02 btn-block">Sign In</button> -->
               <app-submit-button name="Sign In"></app-submit-button>
             </form>
             <!-- <div class="divider-text">or</div>

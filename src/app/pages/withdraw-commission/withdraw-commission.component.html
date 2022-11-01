@@ -1,0 +1,71 @@
+
+<app-header>
+ <div class="content-body card">
+    <div class="d-sm-flex align-items-center justify-content-between">
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item"><a href="#" style="color: #e82687;">MYACCOUNT</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">TRANSFER WALLET INTERNAL</li>
+          </ol>
+        </nav>
+        <h4 class="mg-b-0">{{ title }}</h4>
+      </div>
+      <!-- <div class="search-form mg-t-20 mg-sm-t-0">
+            <input type="search" class="form-control" placeholder="Search posts">
+            <button class="btn" type="button"><i data-feather="search"></i></button>
+          </div> -->
+    </div>
+
+
+    <div class="media row">
+      <div class="col-lg-8 mb-5">
+
+        <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+          <div class="pd-t-20 wd-100p">
+
+            <div class="form-group">
+              <label>From</label>
+              <select type="text" class="form-control bg-light" placeholder="Enter your email address">
+                <option class="" selected>Selelct a Commission Wallet</option>
+                <option value="">Store Commmission - ₦0.00</option>
+                <option value="">Referal Commmission - ₦0.00</option>
+                <option value="">Dealer Commmission - ₦0.00</option>
+                <option value="">Commmission Pending Upgrade - ₦0.00</option>
+              </select>
+              </div>
+
+              <div class="form-group">
+                <label>To</label>
+                <select type="text" class="form-control bg-light" placeholder="Enter your email address">
+                  <option class="">Wallet - ₦12.00</option>
+                </select>
+                </div>
+
+
+            <div class="form-group">
+              <label>Amount To Transfer</label>
+              <input type="text" class="form-control bg-light" placeholder="Amount">
+            </div>
+
+            <div class="form-group">
+              <label>Enter Your Password</label>
+              <input type="text" class="form-control bg-light" placeholder="Amount">
+            </div>
+
+
+
+            <app-submit-button name="Transfer Fund"></app-submit-button>
+
+          </div>
+        </div><!-- sign-wrapper -->
+
+      </div><!-- media-body -->
+      <div class="col-lg-4">
+        <app-side-items></app-side-items>
+      </div>
+    </div><!-- media -->
+  </div>
+
+</app-header>
+

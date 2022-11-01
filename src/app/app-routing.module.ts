@@ -15,6 +15,7 @@ import { PrintAirtimeComponent } from './pages/offerings/print-airtime/print-air
 import { WaecEpinComponent } from './pages/offerings/waec-epin/waec-epin.component';
 import { PaymentNotificationComponent } from './pages/payment-notification/payment-notification.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
+import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'ContactUs',
     component: ContactUsComponent,
+  },
+  {
+    path: 'TransferWalletInternal',
+    component:WithdrawCommissionComponent,
   },
 ];
 

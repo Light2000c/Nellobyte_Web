@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      PhoneNumber: ['', Validators.compose([Validators.required])],
+      PhoneNumber: ['', Validators.compose([Validators.required, Validators.minLength(11), Validators.maxLength(11)])],
       Password: ['', Validators.compose([Validators.required])],
     });
   }
@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.submitAttempt = true;
+
+  if(this.loginForm.valid){
+console.log(this.loginForm.value);
+  }
+
   }
 
 }

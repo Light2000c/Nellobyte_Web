@@ -24,6 +24,8 @@ import { SubHeaderComponent } from './components/sub-header/sub-header.component
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import { SideItemsComponent } from './components/side-items/side-items.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
     SubmitButtonComponent,
     SideItemsComponent,
     ContactUsComponent,
+    WithdrawCommissionComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
