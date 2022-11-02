@@ -6,6 +6,7 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FundWalletComponent } from './pages/fund-wallet/fund-wallet.component';
+import { HomeComponent } from './pages/home/home.component';
 import { AirtimeRechargeComponent } from './pages/offerings/airtime-recharge/airtime-recharge.component';
 import { CableTVRechargeComponent } from './pages/offerings/cable-tv-recharge/cable-tv-recharge.component';
 import { DataBundleComponent } from './pages/offerings/data-bundle/data-bundle.component';
@@ -80,7 +81,11 @@ const routes: Routes = [
   },
   {
     path: 'TransferWalletInternal',
-    component:WithdrawCommissionComponent,
+    component: WithdrawCommissionComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
 ];
 

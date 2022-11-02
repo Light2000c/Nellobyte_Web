@@ -1,0 +1,44 @@
+.welcome-content{
+  height: 400px;
+  width: 100%;
+  background-image: url("/assets/img/clubkonnect_image-50.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: left;
+  text-align: start;
+}
+
+.inner-content{
+ margin-top: 15%;
+ margin-left: 2%;
+}
+
+.welcome-content button{
+  background-color: #e82687;
+  border: none;
+}
+
+
+@media only screen and (max-width: 762px){
+  .welcome-content{
+    height: 350px;
+    width: 100%;
+    background-image: url("/assets/img/clubkonnect_image-50.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .inner-content{
+    margin-top: 12%;
+    margin-left: 0;
+   }
+}
