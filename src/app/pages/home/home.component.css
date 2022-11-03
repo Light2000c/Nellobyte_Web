@@ -22,6 +22,10 @@
   border: none;
 }
 
+.content-cards{
+  border-radius: 15%;
+}
+
 
 @media only screen and (max-width: 762px){
   .welcome-content{
