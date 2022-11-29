@@ -1,25 +1,70 @@
-<div class="card mb-5">
-  <div class="card-header">
-    Join Our Referal Program
+
+<div class="card shadow mb-3">
+  <h6 class="ml-4">Quick Actions</h6>
+<div class="card-body">
+
+ <div class="row no-gutters">
+  <div class="col-4 p-1" *ngFor="let quicklink of quickLinks">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i [class]="'fa '+ quicklink.icon +' icn mb-2'"></i>
+      <p>{{ quicklink.name }}</p>
+    </div>
   </div>
-  <div class="p-1">
-    <p>you'll earn a 5% Commission for airtime, databundle, recharge card printing, cable tv subscription, electrical bill payment, purchase of waec e-pin, funding of beting wallet. </p>
-    <p>Plus an additional 30% referral commision.</p>
+  <!-- <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-globe icn mb-2"></i>
+      <p>Buy Databundle</p>
+    </div>
   </div>
+  <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-bolt icn mb-2"></i>
+      <p>Electrical Bill</p>
+    </div>
+  </div>
+  <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-tv icn mb-2"></i>
+      <p>CableTV Recharge</p>
+    </div>
+  </div>
+
+  <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-print icn mb-2"></i>
+      <p>Card Printing</p>
+    </div>
+  </div>
+
+  <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-wallet icn mb-2"></i>
+      <p>Fund Betting</p>
+    </div>
+  </div>
+
+  <div class="col-4 p-1">
+    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+      <i class="fa fa-sticky-note icn mb-2"></i>
+      <p>Waec Epin</p>
+    </div>
+  </div> -->
+ </div>
+
+</div>
 </div>
 
-<div class="card">
-  <div class="card-header text-light quick-action">
-    Quick Actions
+
+<div class="card shadow border-0 mt-2" style="height: 100%">
+  <div class="card-body pd-y-20 pd-x-25">
+    <h6>HELP DESK</h6>
+    <p>
+      Open a ticket for complaint, feedback or unresolved issues
+    </p>
+    <a href="" class="tx-medium"
+      >Click Here<i class="icon ion-md-arrow-forward mg-l-5"></i
+    ></a>
   </div>
-  <ul class="mt-3 mb-3">
-    <li><a href="">Airime Recharge</a></li>
-    <li><a href="">Data Bundle</a></li>
-    <li><a href="">Fund Betting Wallet</a></li>
-    <li><a href="">Recharge Card Printing</a></li>
-    <li><a href="">CableTV Subscription</a></li>
-    <li><a href="">Electrical Bill Payment</a></li>
-    <li><a href="">Purchase of Waec e-pin</a></li>
-  </ul>
+  <!-- card-body -->
 </div>
 

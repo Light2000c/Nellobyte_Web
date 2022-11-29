@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SubmitButtonComponent implements OnInit {
 
   @Input() name!: String;
+  @Input() loading!: boolean;
   constructor() { }
 
   ngOnInit(): void {

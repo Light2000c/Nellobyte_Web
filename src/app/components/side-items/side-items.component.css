@@ -5,3 +5,10 @@ a{
   /* background-color: #304ffe; */
   background-color:  #1e3995;
 }
+ul{
+  list-style: none;
+}
+.icn{
+  transform: scale(1.8);
+  color: #e82687;
+}

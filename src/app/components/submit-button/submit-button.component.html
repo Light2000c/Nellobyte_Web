@@ -1,3 +1,4 @@
-<button class="btn btn-brand-02 btn-block mb-3" type="submit">
-  {{ name }}
+<button class="btn btn-brand-02 btn-block mb-3" type="submit" [disabled]="loading">
+   {{ loading?'' : name }}
+  <ion-spinner *ngIf="loading" name="lines"></ion-spinner>
 </button>

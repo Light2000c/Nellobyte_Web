@@ -26,6 +26,12 @@ import { SideItemsComponent } from './components/side-items/side-items.component
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IonicModule } from '@ionic/angular';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { EditProfileComponent } from './pages/settings/edit-profile/edit-profile.component';
+import { DeveloperApiComponent } from './pages/settings/developer-api/developer-api.component';
+import { SecurityComponent } from './pages/settings/security/security.component';
+import { TransactonsComponent } from './pages/transactons/transactons.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,11 @@ import { HomeComponent } from './pages/home/home.component';
     ContactUsComponent,
     WithdrawCommissionComponent,
     HomeComponent,
+    SettingsComponent,
+    EditProfileComponent,
+    DeveloperApiComponent,
+    SecurityComponent,
+    TransactonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +69,7 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    IonicModule.forRoot(),
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

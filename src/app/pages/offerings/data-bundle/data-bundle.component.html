@@ -4,58 +4,113 @@
       <div>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-            <li class="breadcrumb-item"><a href="#" style="color: #e82687;">MYACCOUNT</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">BUY DATABUNDLE</li>
+            <li class="breadcrumb-item">
+              <a href="#" style="color: #e82687">MYACCOUNT</a>
+            </li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">
+              BUY DATABUNDLE
+            </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 ">{{ title }}</h4>
+        <h4 class="mg-b-0">{{ title }}</h4>
       </div>
     </div>
 
     <div class="media row">
       <div class="col-lg-8 mb-5">
-
         <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
           <div class="pd-t-20 wd-100p">
-
-            <!-- <div class="form-group">
+            <form [formGroup]="form" (ngSubmit)="send()">
+              <!-- <div class="form-group">
               <label>Payment Option</label>
               <input type="email" class="form-control" placeholder="Enter your email address">
             </div> -->
-            <div class="form-group">
-              <div class="d-flex justify-content-between mg-b-5">
-                <label class="mg-b-0-f">Mobile Network</label>
+              <div class="form-group">
+                <div class="d-flex justify-content-between mg-b-5">
+                  <label class="mg-b-0-f">Mobile Network</label>
+                </div>
+                <select
+                  formControlName="Network"
+                  type="text"
+                  class="form-control bg-light"
+                  [class.invalid]="
+                    !form.controls.MobileNetwork.valid && submitAttempt
+                  "
+                >
+                  <option selected value="">Select a Network</option>
+                  <option value="MTN">MTN</option>
+                  <option value="Glo">Glo</option>
+                  <option value="Airtel">Airtel</option>
+                  <option value="9mobile">9mobile</option>
+                </select>
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.MobileNetwork.valid && submitAttempt"
+                  >Please select a network</small
+                >
               </div>
-              <select type="text" class="form-control bg-light">
-                <option>Select a Network</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>DataBundle Plan</label>
-              <select type="text" class="form-control bg-light">
-                <option>Select a Plan</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Mobile Number</label>
-              <input type="text" class="form-control bg-light" placeholder="Mobile Number">
-            </div>
-            <div class="form-group">
-              <label>Amount</label>
-              <input type="text" class="form-control bg-light" placeholder="Amount">
-            </div>
-             <app-submit-button name="Buy Now"></app-submit-button>
+              <div class="form-group">
+                <label>DataBundle Plan</label>
+                <select
+                  formControlName="DataPlan"
+                  type="text"
+                  class="form-control bg-light"
+                  [class.invalid]="
+                    !form.controls.DataPlan.valid && submitAttempt
+                  "
+                >
+                  <option
+                    *ngFor="let dataType of databundles"
+                    [value]="dataType?.dataPlan"
+                  >
+                    {{ dataType?.dataPlan + " - " + dataType?.validity }} days
+                  </option>
+                  <!-- <option>Select a Plan</option> -->
+                </select>
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.DataPlan.valid && submitAttempt"
+                  >Please select a plan</small
+                >
+              </div>
+              <div class="form-group">
+                <label>Amount</label>
+                <input
+                formControlName="Amount"
+                  type="text"
+                  class="form-control bg-light"
+                  placeholder="Amount"
+                />
+              </div>
+              <div class="form-group">
+                <label>Mobile Number</label>
+                <input
+                  formControlName="MobileNumber"
+                  type="tel"
+                  class="form-control bg-light"
+                  placeholder="Mobile Number"
+                  [class.invalid]="
+                    !form.controls.MobileNumber.valid && submitAttempt
+                  "
+                />
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.MobileNumber.valid && submitAttempt"
+                  >Please enter a valid phone number</small
+                >
+              </div>
+              <app-submit-button name="Buy Now" [loading]="loading"></app-submit-button>
+            </form>
           </div>
-        </div><!-- sign-wrapper -->
-
-      </div><!-- media-body -->
+        </div>
+        <!-- sign-wrapper -->
+      </div>
+      <!-- media-body -->
 
       <div class="col-lg-4">
-     <app-side-items></app-side-items>
+        <app-side-items></app-side-items>
       </div>
-
-    </div><!-- media -->
-</div>
-
-
+    </div>
+    <!-- media -->
+  </div>
 </app-header>

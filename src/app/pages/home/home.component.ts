@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  slideOptions: any = {
+    slidesPerView: 2,
+    autoplay: true,
+    loop: true,
+    breakpoints: {
+      640:{
+        slidesPerView: 1.4,
+      },
+      900:{
+        slidesPerView: 4,
+      }
+    },
+    coverflowEffect: {
+      slideShows: true,
+    }
+  };
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

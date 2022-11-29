@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { promises } from 'dns';
+import { DataProvider } from 'src/app/providers/data/data';
+import { TransactionProvider } from 'src/app/providers/transaction/transaction';
 
 
 @Component({
@@ -10,31 +11,33 @@ import { promises } from 'dns';
 })
 export class DashboardComponent implements OnInit {
 
-  header = new Headers({
-    'Authorization': 'Bearer d24m6z0v5f06e0ogq97vc2k97710222022m08981pt6cr64v787l7tmav8m40936',
-    'Content-Type' : 'application/json',
+  header = new HttpHeaders({
+    'Authorization': 'Bearer 8t01gc14r1nd8r45s9t13rfj8228120225qmp03dhu9q3bj0g4h90584wo121327',
+    'Content-Type': 'application/json',
   });
+
+
   constructor(
-    private http: HttpClient,
+    private transaction: TransactionProvider,
+    private data: DataProvider,
   ) { }
 
   ngOnInit(): void {
-    this.check();
   }
 
-  check(){
-   const promise = new Promise((resolve, reject) => {
-   this.http.post("https://www.nellobytesystems.com/enterprise/APIGetWalletBalanceV1.asp",{headers: this.header}).subscribe((res)=>{
-      resolve(res);
-      console.log(res);
-    }, (error) => {
-      console.log(error);
-      reject(error);
-    });
-   });
-
-   return promise;
-  }
+  // check() {
+  //   const promise = new Promise((resolve, reject) => {
+  //     this.http.post("https://www.nellobytesystems.com/enterprise/APIAirtimeProviderV1.asp", {}, { headers: this.header }).subscribe((res) => {
+  //       resolve(res);
+  //       console.log(res);
+  //     }, (error) => {
+  //       console.log(error);
+  //       reject(error);
+  //     });
+  //   });
+  //   return promise;
+  // }
 
 
 }
+

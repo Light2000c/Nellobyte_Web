@@ -21,6 +21,7 @@
     <div class="col-lg-8 mb-5">
       <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
         <div class="pd-t-20 wd-100p">
+          <form [formGroup]="form" (ngSubmit)="send()">
           <div class="form-group">
             <label>Payment Option</label>
             <select
@@ -34,41 +35,56 @@
           <div class="form-group">
             <label>Mobile Network</label>
             <select
+            formControlName="Network"
               type="text"
               class="form-control bg-light"
               placeholder="Enter your email address"
+              [class.invalid]="!form.controls.Network.valid && submitAttempt"
             >
-              <option>Select a Network</option>
+              <option selected value="">Select a Network</option>
+              <option value="MTN">MTN</option>
+              <option value="Glo">Glo</option>
+              <option value="Airtel">Airtel</option>
+              <option value="9mobile">9mobile</option>
             </select>
+            <small class="text-danger" *ngIf="!form.controls.MobileNetwork.valid && submitAttempt">Please select a mobile network</small>
           </div>
           <div class="form-group">
             <div class="d-flex justify-content-between mg-b-5">
-              <label class="mg-b-0-f">Airtime Value(50-50000)</label>
+              <label class="mg-b-0-f">Airtime Value (50-50000)</label>
             </div>
             <input
-              type="password"
+            formControlName="AirtimeValue"
+              type="number"
               class="form-control bg-light"
               placeholder=""
+              [class.invalid]="!form.controls.AirtimeValue.valid && submitAttempt"
             />
+            <small class="text-danger" *ngIf="!form.controls.AirtimeValue.valid && submitAttempt">Enter amount between 50 - 50000</small>
           </div>
           <div class="form-group">
             <label>Mobile Number</label>
             <input
-              type="text"
+            formControlName="MobileNumber"
+              type="tel"
               class="form-control bg-light"
               placeholder="Mobile Number"
+              [class.invalid]="!form.controls.MobileNumber.valid && submitAttempt"
             />
+            <small class="text-danger" *ngIf="!form.controls.MobileNumber.valid && submitAttempt">Please enter a valid phone number</small>
           </div>
           <div class="form-group">
             <label>Amount</label>
             <input
+            formControlName="Amount"
               type="text"
               class="form-control bg-light"
               placeholder="Amount"
             />
           </div>
 
-          <app-submit-button name="Buy Now"></app-submit-button>
+          <app-submit-button name="Buy Now" [loading]="loading"></app-submit-button>
+        </form>
         </div>
       </div>
       <!-- sign-wrapper -->

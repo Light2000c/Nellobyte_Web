@@ -15,6 +15,8 @@ import { FundBettingComponent } from './pages/offerings/fund-betting/fund-bettin
 import { PrintAirtimeComponent } from './pages/offerings/print-airtime/print-airtime.component';
 import { WaecEpinComponent } from './pages/offerings/waec-epin/waec-epin.component';
 import { PaymentNotificationComponent } from './pages/payment-notification/payment-notification.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { TransactonsComponent } from './pages/transactons/transactons.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
 
@@ -86,6 +88,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+  },
+  {
+    path: 'Transactions',
+    component: TransactonsComponent,
   },
 ];
 
