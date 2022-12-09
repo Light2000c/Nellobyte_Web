@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { USER } from 'src/app/models/user.model';
+import { AuthProvider } from 'src/app/providers/auth/auth';
 
 @Component({
   selector: 'app-home',
@@ -24,11 +27,20 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  constructor() { }
 
-  ngOnInit(): void {
+  public user!: USER;
+
+  constructor(
+    private route: Router,
+    public auth: AuthProvider,
+  ) { 
+
   }
 
+  ngOnInit(): void {
+  
+   this.auth.checkUser();
+  }
 
 
 }

@@ -1,3 +1,9 @@
 export interface USER{
-  walletBalance: 'string';
+  walletAmount: 'string';
+  bearerToken: string,
+companyName: string,
+emailAddress: string,
+firstName: string,
+lastName: string,
+phoneNumber : string
 }

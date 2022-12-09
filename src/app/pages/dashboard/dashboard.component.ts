@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AuthProvider } from 'src/app/providers/auth/auth';
 import { DataProvider } from 'src/app/providers/data/data';
 import { TransactionProvider } from 'src/app/providers/transaction/transaction';
 
@@ -20,23 +22,13 @@ export class DashboardComponent implements OnInit {
   constructor(
     private transaction: TransactionProvider,
     private data: DataProvider,
+    public auth: AuthProvider,
   ) { }
 
   ngOnInit(): void {
+    this.auth.setUser();
   }
 
-  // check() {
-  //   const promise = new Promise((resolve, reject) => {
-  //     this.http.post("https://www.nellobytesystems.com/enterprise/APIAirtimeProviderV1.asp", {}, { headers: this.header }).subscribe((res) => {
-  //       resolve(res);
-  //       console.log(res);
-  //     }, (error) => {
-  //       console.log(error);
-  //       reject(error);
-  //     });
-  //   });
-  //   return promise;
-  // }
 
 
 }

@@ -25,9 +25,7 @@
         >
       </li>
       <li class="nav-item with-sub">
-        <a  class="nav-link"
-          ><i data-feather="pie-chart"></i>More Options</a
-        >
+        <a class="nav-link"><i data-feather="pie-chart"></i>More Options</a>
         <ul class="navbar-menu-sub">
           <li class="nav-sub-item">
             <a href="dashboard-one.html" class="nav-sub-link"
@@ -55,34 +53,24 @@
   </div>
   <!-- navbar-menu-wrapper -->
   <div class="navbar-right">
-    <div class="dropdown dropdown-profile">
+    <div *ngIf="auth.user !== null" class="dropdown dropdown-profile">
+        <a routerLink="/dashboard" class="btn btn-sm pd-x-15 btn-white btn-uppercase">
+          MY ACCOUNT 
+        </a>
+    </div>
+
+    <div *ngIf="!auth.user" class="dropdown dropdown-profile">
       <a
-        href=""
+        routerLink="/login"
         class="dropdown-link"
         data-toggle="dropdown"
         data-display="static"
       >
         <button class="btn btn-sm pd-x-15 btn-white btn-uppercase">
-          REGISTER
-        </button>
-        <button class="btn btn-sm pd-x-15 btn-white btn-uppercase ml-2">
           LOGIN
         </button>
       </a>
-      <!-- <div class="dropdown-menu dropdown-menu-right tx-13">
-        <div class="avatar avatar-lg mg-b-15"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
-        <h6 class="tx-semibold mg-b-5">Katherine Pechon</h6>
-        <p class="mg-b-25 tx-12 tx-color-03">Administrator</p>
 
-        <a href="" class="dropdown-item"><i data-feather="edit-3"></i> Edit Profile</a>
-        <a href="page-profile-view.html" class="dropdown-item"><i data-feather="user"></i> View Profile</a>
-        <div class="dropdown-divider"></div>
-        <a href="page-help-center.html" class="dropdown-item"><i data-feather="help-circle"></i> Help Center</a>
-        <a href="" class="dropdown-item"><i data-feather="life-buoy"></i> Forum</a>
-        <a href="" class="dropdown-item"><i data-feather="settings"></i>Account Settings</a>
-        <a href="" class="dropdown-item"><i data-feather="settings"></i>Privacy Settings</a>
-        <a href="page-signin.html" class="dropdown-item"><i data-feather="log-out"></i>Sign Out</a>
-      </div> -->
     </div>
     <!-- dropdown -->
   </div>
@@ -141,10 +129,15 @@
         BETTER WAY TO TOPUP YOUR PHONES AND PAY YOUR BILLS ONLINE
       </h6>
       <p class="tx-15 text-light">
-        <b>NellobyteSystem have Provided an easy way for paying bills online and doing topups on your mobile phone.</b>
+        <b
+          >NellobyteSystem have Provided an easy way for paying bills online and
+          doing topups on your mobile phone.</b
+        >
       </p>
       <div>
+        <a routerLink="/register">
         <button class="btn btn-primary text-uppercase">GET STARTED</button>
+      </a>
       </div>
     </div>
   </div>
@@ -212,7 +205,7 @@
           <i class="mb-4 offer-icons" data-feather="smartphone"></i>
           <h6 class="tx-bold">Airtime Recharge</h6>
           <p>Enjoy huge discount when you purchase airtime.</p>
-          <a href="" class="tx-medium action-link">Buy Now </a>
+          <a routerLink="/BuyAirtime" class="tx-medium action-link">Buy Now </a>
         </div>
 
         <div class="col-lg-4 text-center text-lg-left mb-4 mt-2 border-lg-left">
@@ -222,7 +215,7 @@
             Start enjoying this very low rates for your internet browsing
             databundle.
           </p>
-          <a href="" class="tx-medium action-link">Buy Now</a>
+          <a routerLink="/BuyDatabundle" class="tx-medium action-link">Buy Now</a>
         </div>
 
         <div
@@ -267,28 +260,36 @@
     </div>
   </div>
 
-
   <div class="mb-5 mt-5">
-<div class="container ">
-    <div class="row gx-5">
-      <div class="col-sm-6 col-lg-6 card shadow d-flex justify-content-center  transparent-content p-3 mb-2">
-        <div class="transparent-inner">
-          <!-- <img src="assets/img/alloffering.png" alt=""> -->
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-6  order-lg-first">
-        <div>
-          <h5 class="tx-30 tx-bold">Topup Your Phones And Pay Your Bills From Anywhere</h5>
-          <p class="tx-20">Do you want to buy airtime, databundles or pay your bill and you are too tired to go out?
-            <br>
-            We offer instant recharge of Airtime, Databundle, CableTV (DStv, GOtv & Startimes), Electricity Bill Payemnt, Recharge Card Printing and so much more.
-          </p>
-          <div>
-            <button type="button" class="btn btn-lg btn-primary" disabled>Register Now</button>
+    <div class="container">
+      <div class="row gx-5">
+        <div
+          class="col-sm-6 col-lg-6 card shadow d-flex justify-content-center transparent-content p-3 mb-2"
+        >
+          <div class="transparent-inner">
+            <!-- <img src="assets/img/alloffering.png" alt=""> -->
           </div>
         </div>
-      </div>
-
+        <div class="col-sm-6 col-lg-6 order-lg-first">
+          <div>
+            <h5 class="tx-30 tx-bold">
+              Topup Your Phones And Pay Your Bills From Anywhere
+            </h5>
+            <p class="tx-20">
+              Do you want to buy airtime, databundles or pay your bill and you
+              are too tired to go out?
+              <br />
+              We offer instant recharge of Airtime, Databundle, CableTV (DStv,
+              GOtv & Startimes), Electricity Bill Payemnt, Recharge Card
+              Printing and so much more.
+            </p>
+            <div>
+              <button type="button" class="btn btn-lg btn-primary" disabled>
+                Register Now
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -296,7 +297,7 @@
   <div class="mt-5">
     <div class="container">
       <div class="mb-5 mt-5">
-        <hr>
+        <hr />
         <!-- <h6 class="tx-22 tx-bold text-center">GETTING STARTED</h6> -->
       </div>
 
@@ -305,7 +306,10 @@
           <div class="p-2 gs-contents">
             <i class="fa fa-rocket mb-2 offer-icons mt-3"></i>
             <h6>Easy Transactions</h6>
-            <p>All transactions are processed real-time and airtime/data delivered instantly</p>
+            <p>
+              All transactions are processed real-time and airtime/data
+              delivered instantly
+            </p>
           </div>
         </div>
 
@@ -313,12 +317,14 @@
           <div class="p-2 gs-contents">
             <i class="fa fa-lock mb-2 offer-icons mt-3"></i>
             <h6>Sucurity</h6>
-            <p>Your personal account created on NellobyteSystems is safe secured.</p>
+            <p>
+              Your personal account created on NellobyteSystems is safe secured.
+            </p>
           </div>
         </div>
 
         <div class="col-lg-4 text-center mb-4">
-          <div class=" p-2 gs-contents">
+          <div class="p-2 gs-contents">
             <i class="fa fa-life-ring mb-2 offer-icons mt-3"></i>
             <h6>Quality Support</h6>
             <p>We provide you with 24/7 Help & Support.</p>
@@ -329,55 +335,75 @@
   </div>
 
   <footer>
-  <div class="bg-dark">
-    <div class="bg-light mb-5">
-    <div class="container">
-      <div class="row pt-2 pb-2">
-      <div class="col-sm-6 col-lg-3 border-right">
-      <h6>Social Media Links</h6>
-      </div>
-      <div class="col-sm-6 col-lg-3 d-flex">
-      <h6 class="mr-2"> <i data-feather="facebook"></i></h6>
-      <h6 class="mr-2"> <i data-feather="instagram"></i></h6>
-      <h6 class="mr-2"> <i data-feather="twitter"></i></h6>
-      <h6 class="mr-2"> <i data-feather="whatsapp"></i></h6>
-      </div>
-     </div>
-    </div>
-  </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 text-start mb-3">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti neque, at corporis dicta porro vitae repellendus non unde possimus iure provident quaerat nihil blanditiis, delectus, sit incidunt rerum iste odit.
-          <p>School Lakowe, Ibeju-Lekki,Lagos.</p>
-           <p>clintononitsha@gmail.com</p>
-           <p>08128161958</p>
-           <p>Opens 7:00am - 5:00pm</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 text-start text-lg-center mb-3">
-        <p><a href="">Home</a></p>
-        <p><a href="">Contact Us</a></p>
-        <p><a href="">Terms of use</a></p>
-        <p><a href="">Privacy policy</a></p>
-        </div>
-        <div class="col-sm-6 col-lg-4 text-start text-lg-center mb-3">
-          <p><a href="">Buy Airtime</a></p>
-          <p><a href="">Buy Databundle</a></p>
-          <p><a href="">Pay Electrical Bill</a></p>
-          <p><a href="">Fund Betting Wallet</a></p>
-          <p><a href="">Print Recharge Card</a></p>
-          <p><a href="">Waec Epin</a></p>
+    <div class="bg-dark">
+      <div class="bg-light mb-5">
+        <div class="container">
+          <div class="row pt-2 pb-2">
+            <div class="col-sm-6 col-lg-3 border-right">
+              <h6>Social Media Links</h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 d-flex">
+              <h6 class="mr-2"><i data-feather="facebook"></i></h6>
+              <h6 class="mr-2"><i data-feather="instagram"></i></h6>
+              <h6 class="mr-2"><i data-feather="twitter"></i></h6>
+              <h6 class="mr-2"><i data-feather="whatsapp"></i></h6>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="bg-light mt-5">
-      <div class="container pt-2 pb-2">
-        <h6>© Copyright 2017 | Nellobyte Systems Ltd</h6>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 text-start mb-3">
+            <p>
+              <a routerLink=""
+                >We offer instant recharge of Airtime, Databundle, CableTV
+                (DStv, GOtv & Startimes), Electricity Bill Payemnt, Recharge
+                Card Printing and so much more.</a
+              >
+            </p>
+            <p>
+              <a href=""
+                ><i class="fa fa-map-marker mr-2"></i> chool Lakowe,
+                Ibeju-Lekki,Lagos.</a
+              >
+            </p>
+            <p>
+              <a href=""
+                ><i class="fa fa-envelope mr-2"></i>clintononitsha@gmail.com</a
+              >
+            </p>
+            <p>
+              <a href=""><i class="fa fa-phone mr-2"></i>08128161958</a>
+            </p>
+            <p>
+              <a href=""
+                ><i class="fa fa-clock mr-2"></i>Opens 7:00am - 5:00pm</a
+              >
+            </p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-start text-lg-center mb-3">
+            <p><a href="">Home</a></p>
+            <p><a href="">Contact Us</a></p>
+            <p><a href="">Terms of use</a></p>
+            <p><a href="">Privacy policy</a></p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-start text-lg-center mb-3">
+            <p><a href="">Buy Airtime</a></p>
+            <p><a href="">Buy Databundle</a></p>
+            <p><a href="">Pay Electrical Bill</a></p>
+            <p><a href="">Fund Betting Wallet</a></p>
+            <p><a href="">Print Recharge Card</a></p>
+            <p><a href="">Waec Epin</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-light mt-5">
+        <div class="container pt-2 pb-2">
+          <h6>© Copyright 2017 | Nellobyte Systems Ltd</h6>
+        </div>
       </div>
     </div>
-
-  </div>
-</footer>
+  </footer>
 </main>

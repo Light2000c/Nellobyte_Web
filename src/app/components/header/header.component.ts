@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthProvider } from 'src/app/providers/auth/auth';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: Router,
+    public auth: AuthProvider,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+  public logout(){
+  localStorage.clear();
+  console.log("Logging Out ........");
+  this.route.navigate(["/login"]);
   }
 
 }

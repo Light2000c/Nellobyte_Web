@@ -26,7 +26,7 @@
           >
             WALLET BALANCE
           </h6>
-          <h2 class="tx-38 tx-rubik tx-spacing--1 mg-b-5">₦0.00</h2>
+          <h2 class="tx-38 tx-rubik tx-spacing--1 mg-b-5">₦{{ auth.user.walletAmount }}</h2>
           <p class="tx-11 tx-color-03 mg-b-0"></p>
           <p class="mt-2">
             <a href="" class="tx-medium"
@@ -45,7 +45,7 @@
           <div class="card-body pd-y-20 pd-x-25">
             <i class="fa fa-mobile middle-icons m-3" aria-hidden="true"></i>
             <p>Enjoy huge discount when you purchase airtime.</p>
-            <a href="" class="tx-medium"
+            <a routerLink="/BuyAirtime" class="tx-medium"
               >Buy Now <i class="icon ion-md-arrow-forward mg-l-5"></i
             ></a>
           </div>
@@ -62,7 +62,7 @@
               Start enjoying this very low rates for your internet browsing
               databundle.
             </p>
-            <a href="" class="tx-medium"
+            <a routerLink="/BuyDatabundle" class="tx-medium"
               >Buy Now <i class="icon ion-md-arrow-forward mg-l-5"></i
             ></a>
           </div>

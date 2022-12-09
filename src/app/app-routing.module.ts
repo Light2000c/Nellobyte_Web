@@ -19,6 +19,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { TransactonsComponent } from './pages/transactons/transactons.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
+import { AuthGuard } from './providers/auth/authguard';
 
 const routes: Routes = [
   {
@@ -36,14 +37,17 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'BuyAirtime',
     component: AirtimeRechargeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'BuyDatabundle',
     component: DataBundleComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'BuyElectricity',
@@ -100,7 +104,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true}),],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
