@@ -1,5 +1,6 @@
 export const ENDPOINTS = {
     wallet: "APIGetWalletBalanceV1.asp",
+    myaccount: "APIMyAccountV1.asp",
     login: 'APILoginV1.asp',
     register: 'APIRegisterV1.asp',
     transaction: "APIGetTransactionStatusV1.asp",

@@ -31,32 +31,38 @@
                 <small class="text-danger">Company Name is required</small>
               </div>
             </div>
-            <div class="form-group">
-              <label>First Name</label>
-              <input
-                formControlName="FirstName"
-                type="text"
-                class="form-control"
-                placeholder="Full Name"
-                [class.invalid]="!form.controls.FirstName.valid && submitAttempt"
-              />
-              <div *ngIf="!form.controls.FirstName.valid && submitAttempt">
-                <small class="text-danger">First Name is required</small>
+
+            <div class="row">
+              
+              <div class="col form-group">
+                <label>First Name</label>
+                <input
+                  formControlName="FirstName"
+                  type="text"
+                  class="form-control"
+                  placeholder="Full Name"
+                  [class.invalid]="!form.controls.FirstName.valid && submitAttempt"
+                />
+                <div *ngIf="!form.controls.FirstName.valid && submitAttempt">
+                  <small class="text-danger">First Name is required</small>
+                </div>
+              </div>
+  
+              <div class="col form-group">
+                <label>Last Name</label>
+                <input
+                  formControlName="LastName"
+                  type="text"
+                  class="form-control"
+                  placeholder="Full Name"
+                  [class.invalid]="!form.controls.LastName.valid && submitAttempt"
+                />
+                <div *ngIf="!form.controls.LastName.valid && submitAttempt">
+                  <small class="text-danger">Last Name is required</small>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input
-                formControlName="LastName"
-                type="text"
-                class="form-control"
-                placeholder="Full Name"
-                [class.invalid]="!form.controls.LastName.valid && submitAttempt"
-              />
-              <div *ngIf="!form.controls.LastName.valid && submitAttempt">
-                <small class="text-danger">Last Name is required</small>
-              </div>
-            </div>
+           
             <div class="form-group">
               <label>Phone number</label>
               <input
@@ -115,23 +121,17 @@
           <button class="btn btn-outline-facebook btn-block">Sign Up With Facebook</button>
           <button class="btn btn-outline-twitter btn-block">Sign Up With Twitter</button> -->
           <div class="tx-13 mg-t-20 tx-center">
-            Already have an account? <a href="page-signin.html">Sign In</a>
+            Already have an account? <a routerLink="/login">Sign In</a>
           </div>
         </div>
       </div>
       <!-- sign-wrapper -->
       <div
-        class="media-body pd-y-30 pd-lg-x-50 pd-xl-x-60 align-items-center d-none d-lg-flex pos-relative"
+        class="media-body pd-y-30 pd-lg-x-50 pd-xl-x-60  d-none d-lg-flex pos-relative align-self-center"
       >
         <div class="mx-lg-wd-500 mx-xl-wd-550">
           <!-- <img src="https://via.placeholder.com/1280x1225" class="img-fluid" alt=""> -->
-          <img src="assets/img/bg-1.jpg" class="img-fluid" alt="" />
-        </div>
-        <div class="pos-absolute b-0 r-0 tx-12">
-          Social media marketing vector is created by
-          <a href="https://www.freepik.com/pikisuperstar" target="_blank"
-            >pikisuperstar (freepik.com)</a
-          >
+          <img src="assets/img/bg-1.jpg" class="img-fluid" alt="" style="width: 500px; height: 300px;"/>
         </div>
       </div>
       <!-- media-body -->

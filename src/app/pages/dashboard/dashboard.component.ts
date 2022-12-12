@@ -1,5 +1,4 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AuthProvider } from 'src/app/providers/auth/auth';
 import { DataProvider } from 'src/app/providers/data/data';
@@ -27,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.setUser();
+    this.auth.updateWalletBalance(this.header);
   }
 
 

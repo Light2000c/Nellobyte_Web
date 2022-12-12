@@ -53,13 +53,13 @@
   </div>
   <!-- navbar-menu-wrapper -->
   <div class="navbar-right">
-    <div *ngIf="auth.user !== null" class="dropdown dropdown-profile">
+    <div *ngIf="auth.isLoggedIn" class="dropdown dropdown-profile">
         <a routerLink="/dashboard" class="btn btn-sm pd-x-15 btn-white btn-uppercase">
           MY ACCOUNT 
         </a>
     </div>
 
-    <div *ngIf="!auth.user" class="dropdown dropdown-profile">
+    <div *ngIf="!auth.isLoggedIn" class="dropdown dropdown-profile">
       <a
         routerLink="/login"
         class="dropdown-link"

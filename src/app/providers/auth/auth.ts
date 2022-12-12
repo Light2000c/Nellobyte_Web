@@ -37,13 +37,11 @@ export class AuthProvider{
 
   endpoints = ENDPOINTS;
   public user!: USER;
+  public isLoggedIn!: boolean;
   
 
   constructor(
-    private http: HttpClient,
-    private httpService: HttpService,
     private data: DataProvider,
-    private transaction: TransactionProvider,
     public route: Router,
   )
   {
@@ -96,13 +94,29 @@ export class AuthProvider{
     console.log(this.user);
   }
 
-  public checkUser(){
-    let user = JSON.parse(localStorage.getItem('user_info') || '{}');
-    if (user !== null) {
-      console.log("saved data still exist ->>> ");
-      this.setUser();
-    }
+  // public checkUser(){
+  //   let user = JSON.parse(localStorage.getItem('user_info') || '{}');
+  //   if (user !== null) {
+  //     console.log("saved data still exist ->>> ");
+  //     this.setUser();
+  //   }
 
+  // }
+
+  public checkUser(){
+    this.isLoggedIn = localStorage.getItem('user_info') !== null;
+  }
+
+  public async updateWalletBalance(headers: any){
+    const response = await this.data.requester(this.endpoints.myaccount, {}, headers);
+    if(response.status === 'ok'){
+      let data = response.data;
+      this.user.walletAmount = data.walletAmount;
+      this.storeUserData('user_info', JSON.stringify(this.user));
+      console.log("user =>>>",this.user);
+      console.log(response);
+     }
+  
   }
 
 

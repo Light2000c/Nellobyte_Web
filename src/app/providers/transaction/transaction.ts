@@ -5,42 +5,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UtilitiesProvider } from '../utilities/utilities';
 import { TransactionResult } from 'src/app/models/transaction.model';
 import { USER } from 'src/app/models/user.model';
-import { StorageService } from 'src/app/services/storage/storage.service';
 import { Router } from '@angular/router';
+import { AuthProvider } from '../auth/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionProvider {
-  headers = new HttpHeaders({
-    Authorization:
-      'Bearer o5wwaudr0267118369s7897a7711232022sre8r8s7hk00bfi736m0vqbs114434',
-    'Content-Type': 'application/json',
-  });
-
   public endpoint = ENDPOINTS;
   public databundlesLoaded!: boolean;
   public airtimepackagesLoaded!: boolean;
   public response: any;
   public user!: USER;
+  public headers: any;
+  public token = "8t01gc14r1nd8r45s9t13rfj8228120225qmp03dhu9q3bj0g4h90584wo121327";
   constructor(
     private data: DataProvider,
     private utilities: UtilitiesProvider,
-    private route: Router
-  ) {}
+    private route: Router,
+    private auth: AuthProvider,
+  ) {
+  }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
+   
+    // this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
 
-    if (this.user) {
-      console.log(this.user);
-    } else {
-      this.route.navigate(['/register']);
-    }
+    // if (this.user) {
+    //   console.log(this.user);
+    // } else {
+    //   this.route.navigate(['/register']);
+    // }
   }
 
   
   public getAirtimePackages() {
+    console.log("Bearer token being used =>>>", this.auth.user.bearerToken);
+    this.setHearder();
     this.data.requester(this.endpoint.airtimepackages, {}, this.headers).then(
       (response: any) => {
         console.log('Loaded packages', response);
@@ -53,7 +54,15 @@ export class TransactionProvider {
     );
   }
 
+  public setHearder(){
+    this.headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.auth.user.bearerToken}`,
+      'Content-Type': 'application/json',
+    });
+  }
+
   public getDatabundlePackages() {
+    console.log("Bearer token being used =>>>", this.auth.user.bearerToken);
     this.data
       .requester(this.endpoint.databundlepackages, {}, this.headers)
       .then(
@@ -75,6 +84,8 @@ export class TransactionProvider {
         }
       );
   }
+
+
 
   public async startPayment<T = TransactionResult>(
     endpoint: string,
