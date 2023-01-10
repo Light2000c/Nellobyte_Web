@@ -1,6 +1,6 @@
 export interface USER{
   walletAmount: 'string';
-  bearerToken: string,
+  BearerToken: string,
 companyName: string,
 emailAddress: string,
 firstName: string,

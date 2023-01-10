@@ -7,36 +7,36 @@ import { TransactionProvider } from 'src/app/providers/transaction/transaction';
 @Component({
   selector: 'app-transactons',
   templateUrl: './transactons.component.html',
-  styleUrls: ['./transactons.component.css']
+  styleUrls: ['./transactons.component.css'],
 })
 export class TransactonsComponent implements OnInit {
-
   public endpoint = ENDPOINTS;
   public transactions: any;
 
   constructor(
     private data: DataProvider,
-    private transaction: TransactionProvider,
-  ) { }
+    private transaction: TransactionProvider
+  ) {}
 
   ngOnInit(): void {
-  this.loadTransaction();
+    this.loadTransaction();
   }
 
- async loadTransaction(){
-    console.log("Started");
+  async loadTransaction() {
+    console.log('Started');
     // let transaction = await this.transaction.startPayment(this.endpoint.transaction, {requestID: '0052'});
     //  console.log(transaction);
     //  this.transactions = transaction;
     //  console.log(this.transactions);
 
-await this.transaction.getTransactions(this.endpoint.transaction, {requestID: '0052'}).then((response) =>{
-     console.log(response);
-     this.transactions = response;
-     console.log(response.data);
-     });
+    await this.transaction
+      .getTransactions(this.endpoint.transaction, { requestID: '0052' })
+      .then((response) => {
+        console.log(response);
+        this.transactions = response;
+        console.log(response.data);
+      });
+
+    await this.transaction.getTransactionHistory();
   }
-
-
-
 }

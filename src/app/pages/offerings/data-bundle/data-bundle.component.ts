@@ -20,11 +20,10 @@ export class DataBundleComponent implements OnInit {
   public databundleTypes!: any[];
   public endpoints = ENDPOINTS;
   public loading!: boolean;
-  public requestID = '0051';
 
   public product = {
-    name: 'buy_airtime',
-    endpoint: this.endpoints.buyairtime,
+    name: 'buy_databundle',
+    endpoint: this.endpoints.buydatabundle,
   };
 
   constructor(
@@ -50,7 +49,6 @@ export class DataBundleComponent implements OnInit {
     this.form.controls.Network.valueChanges.subscribe((value) => {
       this.setDataBundlePackages(value);
       this.setMobileNetwork(value)
-      this.setRequestID();
     });
 
     this.form.controls.DataPlan.valueChanges.subscribe((value) => {
@@ -100,9 +98,6 @@ export class DataBundleComponent implements OnInit {
     }
   }
 
-  public setRequestID() {
-    this.form.controls.RequestID.setValue(this.requestID);
-  }
 
   public setNetworkValue(key: any) {
     return this.data.databundles[key].id;
@@ -116,6 +111,17 @@ export class DataBundleComponent implements OnInit {
     }
   }
 
+  generateRequestId(){
+
+    const date = new Date();
+    let time = date.getTime();
+    let new_date = date.toLocaleDateString().replaceAll("/", '');
+    let requestID = new_date + time;
+
+    console.log("New request ID ->>>", requestID);
+    this.form.controls.RequestID.setValue(requestID);
+  }
+
   public reset() {
     this.submitAttempt = false;
     this.form.reset();
@@ -123,6 +129,9 @@ export class DataBundleComponent implements OnInit {
   }
 
   public async send() {
+
+    this.generateRequestId();
+    
     this.submitAttempt = true;
     console.log(this.form.value);
     if (this.form.valid) {

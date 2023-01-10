@@ -40,6 +40,20 @@ export class DataProvider {
     return response;
   }
 
+  public requester2<T = any>(url: any) {
+    const response =  new Promise<T>((resolve, reject) => {
+      this.httpService.get(url).subscribe((data: any) => {
+        // console.log(data);
+        resolve(data);
+      }, (error) => {
+        // console.log(error);
+        reject(error);
+      });
+    });
+    return response;
+  }
+
+
 
 
 

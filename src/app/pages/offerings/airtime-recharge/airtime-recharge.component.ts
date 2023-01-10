@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { USER } from 'src/app/models/user.model';
 import { AuthProvider } from 'src/app/providers/auth/auth';
 import { DataProvider } from 'src/app/providers/data/data';
 import { ENDPOINTS } from 'src/app/providers/data/endpoints';
@@ -17,7 +19,7 @@ export class AirtimeRechargeComponent implements OnInit {
   public submitAttempt!: boolean;
   public endpoints = ENDPOINTS;
   public loading!: boolean;
-  public requestID = '0051';
+  public user!: USER;
 
   public product = {
     name: 'buy_airtime',
@@ -25,13 +27,15 @@ export class AirtimeRechargeComponent implements OnInit {
   };
 
   constructor(
-    private authProvider: AuthProvider,
+    private auth: AuthProvider,
     public formBuilder: FormBuilder,
     private data: DataProvider,
     private transaction: TransactionProvider,
+    private route: Router,
   ) { }
 
   ngOnInit(): void {
+
 
     this.load();
     this.form = this.formBuilder.group({
@@ -44,7 +48,7 @@ export class AirtimeRechargeComponent implements OnInit {
     });
     this.form.controls.Network.valueChanges.subscribe((value) => {
       this.setMobileNetwork(value);
-      this.setRequestID();
+      // this.setRequestID();
     });
 
     this.form.controls.AirtimeValue.valueChanges.subscribe((value) => {
@@ -52,6 +56,7 @@ export class AirtimeRechargeComponent implements OnInit {
     });
 
   }
+
 
   public async load() {
     if (!this.transaction.airtimepackagesLoaded) {
@@ -79,17 +84,28 @@ export class AirtimeRechargeComponent implements OnInit {
   }
 
 
-  public setRequestID() {
-    this.form.controls.RequestID.setValue(this.requestID);
-  }
-
   public reset() {
     this.submitAttempt = false;
     this.form.reset();
     this.loading = false;
   }
 
+  generateRequestId(){
+
+    const date = new Date();
+    let time = date.getTime();
+    let new_date = date.toLocaleDateString().replaceAll("/", '');
+    let requestID = new_date + time;
+
+    console.log("New request ID ->>>", requestID);
+    this.form.controls.RequestID.setValue(requestID);
+  }
+
+
   public async send() {
+
+ this.generateRequestId();
+
     this.submitAttempt = true;
     console.log(this.form.value);
     if (this.form.valid) {

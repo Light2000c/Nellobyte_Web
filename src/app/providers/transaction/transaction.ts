@@ -40,7 +40,7 @@ export class TransactionProvider {
 
   
   public getAirtimePackages() {
-    console.log("Bearer token being used =>>>", this.auth.user.bearerToken);
+    console.log("Bearer token being used =>>>", this.auth.user.BearerToken);
     this.setHearder();
     this.data.requester(this.endpoint.airtimepackages, {}, this.headers).then(
       (response: any) => {
@@ -56,13 +56,13 @@ export class TransactionProvider {
 
   public setHearder(){
     this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.auth.user.bearerToken}`,
+      'Authorization': `Bearer ${this.auth.user.BearerToken}`,
       'Content-Type': 'application/json',
     });
   }
 
   public getDatabundlePackages() {
-    console.log("Bearer token being used =>>>", this.auth.user.bearerToken);
+    console.log("Bearer token being used =>>>", this.auth.user.BearerToken);
     this.data
       .requester(this.endpoint.databundlepackages, {}, this.headers)
       .then(
@@ -96,6 +96,17 @@ export class TransactionProvider {
 
   public async getTransactions<T = any>(endpoint: string, params: any) {
     return await this.data.requester<T>(endpoint, params, this.headers);
+  }
+
+  public async getTransactionHistory(){
+    console.log(this.auth.user.BearerToken);
+    await this.data.requester2(`http://localhost:3000/${this.auth.user.BearerToken}`).then((res)=>{
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  //  const transaction = await this.data.requester2(`localhost:3000/getTransactions/${this.auth.user.BearerToken}`);
+
   }
 
   async pay(params: any, product: any) {

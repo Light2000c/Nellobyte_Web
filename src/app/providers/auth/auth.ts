@@ -55,6 +55,7 @@ export class AuthProvider{
      this.user = response.data;
      this.storeUserData('user_info', JSON.stringify(this.user));
       this.route.navigate(['/dashboard']);
+      console.log("saved info=>>", this.user);
     }
    if(response.status === 'error'){
       return {message: response.message}
