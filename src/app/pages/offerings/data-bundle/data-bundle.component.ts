@@ -140,6 +140,7 @@ export class DataBundleComponent implements OnInit {
       console.log(this.product);
       if (await this.transaction.pay(this.form.value, this.product)) {
         this.reset();
+        this.transaction.updateWalletBalance();
       }
     }
   }

@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.setUser();
-    this.auth.updateWalletBalance(this.header);
+    // this.transaction.updateWalletBalance(this.header);
   }
 
 

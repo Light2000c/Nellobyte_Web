@@ -52,6 +52,7 @@ export class AuthProvider{
     try{
     const response = await this.data.requester(url, params, this.headers);
     if(response.status === 'ok'){
+      console.log(response);
      this.user = response.data;
      this.storeUserData('user_info', JSON.stringify(this.user));
       this.route.navigate(['/dashboard']);
@@ -122,8 +123,8 @@ export class AuthProvider{
 
 
   public storeUserData(key: string, value: string){
-     localStorage.setItem(key,value);
-  }
+    localStorage.setItem(key,value);
+ }
 
 
 }

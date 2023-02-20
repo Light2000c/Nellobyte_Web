@@ -8,7 +8,7 @@
               <a href="#" style="color: #e82687">MYACCOUNT</a>
             </li>
             <li class="breadcrumb-item active text-dark" aria-current="page">
-              TRANSACTIONS
+              TRANSACTION HISTORY
             </li>
           </ol>
         </nav>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div>
+    <div >
       <div class="mg-t-10 mt-sm-3">
         <div class="card mg-b-10">
           <div
@@ -28,8 +28,14 @@
             </div>
             <div class="d-flex mg-t-20 mg-sm-t-0">
               <div class="btn-group flex-fill">
-                <button class="btn btn-white btn-xs active">Range</button>
-                <button class="btn btn-white btn-xs">Period</button>
+                <label for="sort mr-2">Sort Transactions: </label>
+                <select (change)="sortTransactions()" class="form-select form-select-sm" name="sort" aria-label=".form-select-sm example" [(ngModel)]="sort">
+                  <option selected >Sort Transactions</option>
+                  <option value="1">Past 1 Day</option>
+                  <option value="7">Past 7 Days</option>
+                  <option value="14">Past 14 Days</option>
+                  <option value="15">Past 30 Days</option>
+                </select>
               </div>
             </div>
           </div>
@@ -38,22 +44,25 @@
             <table class="table table-dashboard mg-b-0">
               <thead>
                 <tr>
-                  <th class="text-right">ID</th>
-                  <th>Date</th>
-                  <th class="">Status</th>
-                  <th class="">Amount</th>
+                  <th>Customer ID</th>
+                  <th class="">Product Amount</th>
                   <th class="">Amount Charged</th>
-                  <th class="">CustomerID</th>
+                  <th class="">Transaction Status</th>
+                  <th class="">Transaction Date</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td>{{ transactions?.date }}</td>
-                  <td>{{ transactions?.status }}</td>
-                  <td>{{ transactions?.amount }}</td>
-                  <td>{{ transactions?.amountCharged }}</td>
-                  <td>{{ transactions?.customerId}}</td>
+              <tbody *ngIf="!loader && transactions !=null">
+                <tr *ngFor="let transaction of transactions">
+                  <td>{{ transaction?.customer_id }}</td>
+                  <td>{{ transaction?.product_amount }}</td>
+                  <td>{{ transaction?.amount_charged}}</td>
+                  <td *ngIf="!checkStatus(transaction?.transaction_status).status; else  success"><span class="badge badge-danger">{{ checkStatus(transaction?.transaction_status).title }}</span></td>
+                  
+                  <ng-template #success>
+                    <td><span class="badge badge-success">{{ checkStatus(transaction?.transaction_status).title }}</span></td>
+                  </ng-template>
+
+                  <td>{{ convertDate(transaction?.transaction_date) }}</td>
                 </tr>
               </tbody>
             </table>
@@ -63,10 +72,21 @@
         <!-- card -->
       </div>
       <!-- col -->
+      <div>
+        <h2>{{ transactions?.customer_id }}</h2>
+      </div>
     </div>
 
-    <div class="alert alert-primary" role="alert">
-      You have no transactions to show yet!
+    <div *ngIf="!loader && transactions == null" class="alert alert-primary" role="alert">
+      No transactions to show yet!
     </div>
+
+    <div *ngIf="loader" class="d-flex justify-content-center">
+     <div class="text-center mb-5">
+        <ion-spinner name="lines"></ion-spinner>
+        <p>Loading Transactions....</p>
+      </div>
+    </div>
+
   </div>
 </app-header>
