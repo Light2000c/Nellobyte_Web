@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { DataProvider } from 'src/app/providers/data/data';
 import { ENDPOINTS } from 'src/app/providers/data/endpoints';
 import { TransactionProvider } from 'src/app/providers/transaction/transaction';
@@ -31,6 +32,7 @@ export class DataBundleComponent implements OnInit {
     private transaction: TransactionProvider,
     private data: DataProvider,
     private utilities: UtilitiesProvider,
+    private route: Router,
   ) { }
 
   ngOnInit(): void {
@@ -141,6 +143,7 @@ export class DataBundleComponent implements OnInit {
       if (await this.transaction.pay(this.form.value, this.product)) {
         this.reset();
         this.transaction.updateWalletBalance();
+        this.route.navigate(['/Transactions']);
       }
     }
   }

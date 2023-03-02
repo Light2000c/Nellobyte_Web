@@ -28,9 +28,9 @@
             </div>
             <div class="d-flex mg-t-20 mg-sm-t-0">
               <div class="btn-group flex-fill">
-                <label for="sort mr-2">Sort Transactions: </label>
+                <label for="sort mr-2">Filter Transactions: </label>
                 <select (change)="sortTransactions()" class="form-select form-select-sm" name="sort" aria-label=".form-select-sm example" [(ngModel)]="sort">
-                  <option selected >Sort Transactions</option>
+                  <option selected >Filter Transactions</option>
                   <option value="1">Past 1 Day</option>
                   <option value="7">Past 7 Days</option>
                   <option value="14">Past 14 Days</option>
@@ -67,6 +67,25 @@
               </tbody>
             </table>
           </div>
+
+          <!-- <div class="accordion" id="accordionExample">
+            <div class="card" *ngFor="let transaction of transactions">
+              <div class="card-header p-0 mb-2" id="headingOne">
+                <h6 class="mb-0 m-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" attr.data-target="#{{ convertTarget(transaction?.transaction_date) }}" aria-expanded="true" attr.aria-controls="{{ transaction?.transaction_date }}">
+                   {{ transaction?.transaction_date }}
+                  </button>
+                </h6>
+              </div>
+          
+              <div id="{{ convertTarget(transaction?.transaction_date) }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                </div>
+              </div>
+            </div>
+            
+          </div> -->
           <!-- table-responsive -->
         </div>
         <!-- card -->
@@ -77,7 +96,7 @@
       </div>
     </div>
 
-    <div *ngIf="!loader && transactions == null" class="alert alert-primary" role="alert">
+    <div *ngIf="!loader && !transactions" class="alert alert-primary" role="alert">
       No transactions to show yet!
     </div>
 
@@ -89,4 +108,6 @@
     </div>
 
   </div>
+
+
 </app-header>

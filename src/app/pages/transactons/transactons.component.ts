@@ -20,6 +20,7 @@ export class TransactonsComponent implements OnInit {
   public user!: USER;
   public loader: boolean = false;
   public sort: any = 0;
+  public count: Number = 0;
 
   constructor(
     private data: DataProvider,
@@ -27,11 +28,13 @@ export class TransactonsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    // this.convertTarget();
     this.loader = true;
     await this.loadTransaction();
     setTimeout(() => {
       this.loader = false;
     }, 3000);
+   
 
     // this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
     // console.log('This is the new user => ', this.user);
@@ -113,4 +116,25 @@ export class TransactonsComponent implements OnInit {
       }, 3000);
     });
   }
+
+  public convertTarget(collected: any){
+  // const datetimeString = "2023-02-20T10:47:48.660Z";
+   const datetimeString = collected;
+const date = new Date(datetimeString);
+const dateString = date.toLocaleDateString("en-US", {
+  weekday: "short",
+  day: "numeric",
+  month: "long",
+});
+const formattedString = dateString
+  .toLowerCase()
+  .replace(/\s/g, "_")
+  .replace(/[^a-z_]/g, "");
+
+  console.log();
+console.log(" checked",formattedString);
+
+return formattedString;
+}
+
 }

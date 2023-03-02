@@ -115,6 +115,7 @@ export class AirtimeRechargeComponent implements OnInit {
       if (await this.transaction.pay(this.form.value, this.product)) {
         this.reset();
         this.transaction.updateWalletBalance();
+        this.route.navigate(['/Transactions']);
       }
 
     }
