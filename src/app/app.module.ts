@@ -32,6 +32,7 @@ import { EditProfileComponent } from './pages/settings/edit-profile/edit-profile
 import { DeveloperApiComponent } from './pages/settings/developer-api/developer-api.component';
 import { SecurityComponent } from './pages/settings/security/security.component';
 import { TransactonsComponent } from './pages/transactons/transactons.component';
+import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { TransactonsComponent } from './pages/transactons/transactons.component'
     DeveloperApiComponent,
     SecurityComponent,
     TransactonsComponent,
+    TransactionDetailComponent,
   ],
   imports: [
     BrowserModule,

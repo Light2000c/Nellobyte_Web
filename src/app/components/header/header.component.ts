@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { USER } from 'src/app/models/user.model';
 import { AuthProvider } from 'src/app/providers/auth/auth';
+import { UtilitiesProvider } from 'src/app/providers/utilities/utilities';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private route: Router,
     public auth: AuthProvider,
+    public utilities: UtilitiesProvider,
   ) { }
 
   ngOnInit(): void {
@@ -24,9 +26,10 @@ export class HeaderComponent implements OnInit {
 
 
   public logout(){
-  localStorage.clear();
-  console.log("Logging Out ........");
-  this.route.navigate(["/login"]);
+  // localStorage.clear();
+  // console.log("Logging Out ........");
+  // this.route.navigate(["/login"]);
+  this.utilities.alert2('success', 'Logging Out', 'Please wait....');
   }
 
 }

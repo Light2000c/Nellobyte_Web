@@ -1,0 +1,64 @@
+<app-header>
+    <div class="content-body card vh-100">
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+              <li class="breadcrumb-item">
+                <a href="#" style="color: #e82687">TRANSACTIONS</a>
+              </li>
+              <li class="breadcrumb-item active text-dark" aria-current="page">
+                TRANSACTION DETAILS
+              </li>
+            </ol>
+          </nav>
+          <!-- <h4 class="mg-b-0 ">{{ title }}</h4> -->
+        </div>
+      </div>
+  
+      <div >
+        <div class="mg-t-10 mt-sm-3">
+          <div class="card mg-b-10">
+            <div
+              class="card-header pd-t-20 d-sm-flex align-items-start justify-content-between bd-b-0 pd-b-0 mb-4 pb-3 border-bottom"
+            >
+              <div class="">
+                <h6 class="mg-b-4" style="color: #041f79">TRANSACTION RECEIT</h6>
+              </div>
+            </div>
+
+            <div id="dataToExport" class="row container"  #dataToExport>
+              <div class="col-sm-6 col-lg-6 ">
+                <p><strong>Transaction Type</strong>  -  Airtime Recharge</p>
+                <p><strong>Transaction Date</strong> - Tue 25 march, 2015</p>
+              </div>
+              <div class="col-sm-6 col-lg-6  border-left">
+                <div>
+               <p ><strong>Request ID</strong> - 6348737972093</p>
+               <p><strong>Transaction Status</strong> - Success</p>
+               <p><strong>Customer ID</strong> - 08128161958</p>
+               <p><strong>Transaction Amount</strong> - ₦500</p>
+               <p> <strong>Amount Charged</strong> - ₦500</p>
+               </div>
+                <div>
+                  <button (click)="downloadAsPDF()" class="btn btn-primary btn-sm">Download Receit</button>
+                </div>
+              </div>
+            </div>
+            
+  
+        
+          </div>
+          <!-- card -->
+        </div>
+        <!-- col -->
+       
+      </div>
+  
+
+  
+    </div>
+  
+  
+  </app-header>
+  

@@ -16,6 +16,7 @@ import { PrintAirtimeComponent } from './pages/offerings/print-airtime/print-air
 import { WaecEpinComponent } from './pages/offerings/waec-epin/waec-epin.component';
 import { PaymentNotificationComponent } from './pages/payment-notification/payment-notification.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
 import { TransactonsComponent } from './pages/transactons/transactons.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
@@ -100,6 +101,10 @@ const routes: Routes = [
   {
     path: 'Transactions',
     component: TransactonsComponent,
+  },
+  {
+    path: 'TransactionDetail',
+    component: TransactionDetailComponent,
   },
 ];
 

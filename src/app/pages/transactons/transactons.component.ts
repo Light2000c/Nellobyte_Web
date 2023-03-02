@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChildActivationStart } from '@angular/router';
 import {
   TransactionHistory,
   TransactionResult,
@@ -21,11 +22,13 @@ export class TransactonsComponent implements OnInit {
   public loader: boolean = false;
   public sort: any = 0;
   public count: Number = 0;
+  public from: any = "";
+  public to: any = "";
 
   constructor(
     private data: DataProvider,
     private transaction: TransactionProvider
-  ) {}
+  ) { }
 
   async ngOnInit() {
     // this.convertTarget();
@@ -34,7 +37,7 @@ export class TransactonsComponent implements OnInit {
     setTimeout(() => {
       this.loader = false;
     }, 3000);
-   
+
 
     // this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
     // console.log('This is the new user => ', this.user);
@@ -54,8 +57,10 @@ export class TransactonsComponent implements OnInit {
     return { status: true, title: 'Success' };
   }
 
-  public convertDate(dates: String) {
-    const dateTime = '2023-01-21T17:10:05.450Z';
+
+
+  public convertDate(dates: any) {
+    const dateTime = dates;
     const date = new Date(dateTime);
     const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
@@ -117,24 +122,49 @@ export class TransactonsComponent implements OnInit {
     });
   }
 
-  public convertTarget(collected: any){
-  // const datetimeString = "2023-02-20T10:47:48.660Z";
-   const datetimeString = collected;
-const date = new Date(datetimeString);
-const dateString = date.toLocaleDateString("en-US", {
-  weekday: "short",
-  day: "numeric",
-  month: "long",
-});
-const formattedString = dateString
-  .toLowerCase()
-  .replace(/\s/g, "_")
-  .replace(/[^a-z_]/g, "");
 
-  console.log();
-console.log(" checked",formattedString);
+  public formatDate() {
+    this.loader = false;
+    this.sortedTransactions = [];
+    const convertFrom = new Date(this.from);
+    const convertTo = new Date(this.to);
+    if (this.from != "") {
+      console.log("From ==> ", convertFrom.toISOString());
+    }
+    if (this.to != "") {
+      console.log("To ==> ", convertTo.toISOString());
+    }
 
-return formattedString;
-}
+    this.transactions.forEach(async (element: any) => {
+      if (this.from != "" && this.to != "") {
+        const from = convertFrom.toISOString();
+        const to = convertTo.toISOString();
+        if (element.transaction_date > from && element.transaction_date < to) {
+          await this.sortedTransactions.push(element);
+        }
+      }
+
+      if (this.from != "" && this.to == "") {
+        const from  = convertFrom.toISOString();
+        if (element.transaction_date >= from) {
+          await this.sortedTransactions.push(element);
+        }
+      }
+
+      if (this.from == "" && this.to != "") {
+        const to = convertTo.toISOString();
+        if (element.transaction_date <= to) {
+          await this.sortedTransactions.push(element);
+        }
+      }
+
+      this.loader = true;
+      this.transactions = this.sortedTransactions;
+      setTimeout(() => {
+        this.loader = false;
+      }, 3000);
+    });
+
+  }
 
 }
