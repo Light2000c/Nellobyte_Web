@@ -103,7 +103,7 @@ const routes: Routes = [
     component: TransactonsComponent,
   },
   {
-    path: 'TransactionDetail',
+    path: 'Transaction/:requestID',
     component: TransactionDetailComponent,
   },
 ];

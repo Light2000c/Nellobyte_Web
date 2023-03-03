@@ -138,6 +138,20 @@ export class TransactionProvider {
   
   }
 
+  public async getTransactionDetail<T = TransactionHistory>(requestID: any){
+    const response = new Promise<T>((resolve, reject) => {
+      this.data.requester2(`http://localhost:3000/Transaction/${requestID}`).then((res) => {
+        console.log(res);
+        resolve(res[0]);
+      }).catch((err) => {
+        console.log(err)
+        reject(err);
+      });
+    });
+
+    return response;
+  }
+
 
   public storeUserData(key: string, value: string){
     localStorage.setItem(key,value);

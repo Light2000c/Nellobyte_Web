@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChildActivationStart } from '@angular/router';
+import { ChildActivationStart, Router,  } from '@angular/router';
 import {
   TransactionHistory,
   TransactionResult,
@@ -27,7 +27,8 @@ export class TransactonsComponent implements OnInit {
 
   constructor(
     private data: DataProvider,
-    private transaction: TransactionProvider
+    private transaction: TransactionProvider,
+    private route: Router
   ) { }
 
   async ngOnInit() {
@@ -38,9 +39,6 @@ export class TransactonsComponent implements OnInit {
       this.loader = false;
     }, 3000);
 
-
-    // this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
-    // console.log('This is the new user => ', this.user);
   }
 
   async loadTransaction() {
@@ -78,37 +76,21 @@ export class TransactonsComponent implements OnInit {
   }
 
   public getPastDays(datetime: string, day: any): string {
-    // Convert the datetime string to a Date object
     const date = new Date(datetime);
-
-    // Get the timestamp of the datetime in milliseconds
     const timestamp = date.getTime();
-
-    // Calculate the timestamp of 7 days ago in milliseconds
     const sevenDaysAgoTimestamp = timestamp - day * 24 * 60 * 60 * 1000;
-
-    // Create a new Date object for the 7 days ago timestamp
     const sevenDaysAgoDate = new Date(sevenDaysAgoTimestamp);
-
-    // Format the new Date object as a string in the same format as the original datetime string
-    // const sevenDaysAgoString = sevenDaysAgoDate.toISOString().replace(/[-:]/g, '').slice(0, -5);
     const sevenDaysAgoString = sevenDaysAgoDate.toISOString();
-
-    // Return the 7 days ago datetime string
     return sevenDaysAgoString;
   }
 
   async sortTransactions() {
     console.log('Number is =>> ', this.sort);
-
     const now = new Date();
     const datetime = now.toISOString();
     console.log(datetime); // Output: '2023-02-15T12:00:00.000Z'
-
-    // const datetime = '20130623T13:22-0500';
     const DaysAgoDatetime = this.getPastDays(datetime, this.sort);
     console.log(DaysAgoDatetime); // Output: '20130616T13:22-0500'
-
     this.transactions.forEach(async (element: any) => {
       if (element.transaction_date >= DaysAgoDatetime) {
         await this.sortedTransactions.push(element);
@@ -128,12 +110,6 @@ export class TransactonsComponent implements OnInit {
     this.sortedTransactions = [];
     const convertFrom = new Date(this.from);
     const convertTo = new Date(this.to);
-    if (this.from != "") {
-      console.log("From ==> ", convertFrom.toISOString());
-    }
-    if (this.to != "") {
-      console.log("To ==> ", convertTo.toISOString());
-    }
 
     this.transactions.forEach(async (element: any) => {
       if (this.from != "" && this.to != "") {
@@ -165,6 +141,10 @@ export class TransactonsComponent implements OnInit {
       }, 3000);
     });
 
+  }
+
+  public viewDetails(requestID: any){
+   this.route.navigate(['/Transaction', requestID]);
   }
 
 }

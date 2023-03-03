@@ -11,7 +11,7 @@ export class HttpService {
   // });
 
     header = new HttpHeaders({
-    // 'Authorization': 'Bearer d24m6z0v5f06e0ogq97vc2k97710222022m08981pt6cr64v787l7tmav8m40936',
+    'Accept': 'application/json',
     'Content-Type' : 'application/json',
   });
 

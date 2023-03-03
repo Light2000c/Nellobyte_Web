@@ -20,6 +20,7 @@ export class AirtimeRechargeComponent implements OnInit {
   public endpoints = ENDPOINTS;
   public loading!: boolean;
   public user!: USER;
+  public generatedID!: any;
 
   public product = {
     name: 'buy_airtime',
@@ -96,7 +97,7 @@ export class AirtimeRechargeComponent implements OnInit {
     let time = date.getTime();
     let new_date = date.toLocaleDateString().replaceAll("/", '');
     let requestID = new_date + time;
-
+    this.generatedID = requestID;
     console.log("New request ID ->>>", requestID);
     this.form.controls.RequestID.setValue(requestID);
   }
@@ -115,10 +116,14 @@ export class AirtimeRechargeComponent implements OnInit {
       if (await this.transaction.pay(this.form.value, this.product)) {
         this.reset();
         this.transaction.updateWalletBalance();
-        this.route.navigate(['/Transactions']);
+        this.viewDetails();
       }
 
     }
   }
+
+  public viewDetails(){
+   return  this.route.navigate(['/Transaction', this.generatedID]);
+   }
 
 }

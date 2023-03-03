@@ -19,13 +19,4 @@ export class UtilitiesProvider{
         // timer: 1500,
     });
   }
-
-  public alert2(icon: SweetAlertIcon,title: string, text: string){
-    Swal.fire({
-      title: title,
-      text: text,
-      timer: 3000,
-      timerProgressBar: true,
-    })
-  }
 }

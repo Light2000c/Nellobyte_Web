@@ -29,16 +29,16 @@
 
             <div id="dataToExport" class="row container"  #dataToExport>
               <div class="col-sm-6 col-lg-6 ">
-                <p><strong>Transaction Type</strong>  -  Airtime Recharge</p>
-                <p><strong>Transaction Date</strong> - Tue 25 march, 2015</p>
+                <p><strong>Transaction Type</strong>  -  Airtime Recharge </p>
+                <p><strong>Transaction Date</strong> - {{ convertDate(transactionDetails?.transaction_date) }}</p>
               </div>
               <div class="col-sm-6 col-lg-6  border-left">
                 <div>
-               <p ><strong>Request ID</strong> - 6348737972093</p>
-               <p><strong>Transaction Status</strong> - Success</p>
-               <p><strong>Customer ID</strong> - 08128161958</p>
-               <p><strong>Transaction Amount</strong> - ₦500</p>
-               <p> <strong>Amount Charged</strong> - ₦500</p>
+               <p ><strong>Request ID</strong> - {{ transactionDetails?.request_id }}</p>
+               <p><strong>Transaction Status</strong> - {{ checkStatus(transactionDetails?.transaction_status).title }}</p>
+               <p><strong>Customer ID</strong> - {{ transactionDetails?.customer_id }}</p>
+               <p><strong>Transaction Amount</strong> - ₦{{ transactionDetails?.product_amount }}</p>
+               <p> <strong>Amount Charged</strong> - ₦{{ transactionDetails?.amount_charged}}</p>
                </div>
                 <div>
                   <button (click)="downloadAsPDF()" class="btn btn-primary btn-sm">Download Receit</button>
