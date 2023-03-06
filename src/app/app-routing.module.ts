@@ -24,6 +24,11 @@ import { AuthGuard } from './providers/auth/authguard';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent,
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -89,10 +94,6 @@ const routes: Routes = [
   {
     path: 'TransferWalletInternal',
     component: WithdrawCommissionComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
   },
   {
     path: 'settings',
