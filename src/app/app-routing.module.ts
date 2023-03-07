@@ -96,7 +96,7 @@ const routes: Routes = [
     component: WithdrawCommissionComponent,
   },
   {
-    path: 'settings',
+    path: 'Settings',
     component: SettingsComponent,
   },
   {
