@@ -22,7 +22,6 @@
           <h6 class="tx-semibold mg-b-0">{{ user.firstName + " " + user.lastName }}</h6>
           <i data-feather="chevron-down"></i>
         </a>
-        <p class="tx-color-03 tx-12 mg-b-0">VIP</p>
       </div>
       <div class="collapse" id="loggedinMenu">
         <ul class="nav nav-aside mg-b-0">
@@ -58,10 +57,28 @@
 
 <div class="content ht-100v pd-0">
   <div class="content-header">
-    <div class="content-search">
+   <marquee behavior="" direction="" [scrollDelay]="200" [trueSpeed]="200">
+    <span class="ms-5">
+    To check your airtime balance
+      MTN >> *556#
+      GLO >> #124*1#
+      AirTel >> *123#
+      Etisalat >> *232#
+    </span>
+      <span class="me-5">
+        To check your data balance
+      MTN (SME) >> *461*4#
+      MTN (direct) >> *131*4#
+      GLO >> *127*0#
+      AirTel >> *140#
+      Etisalat >> *228#
+      </span>
+    </marquee>
+
+    <!-- <div class="content-search">
       <i data-feather="search"></i>
       <input type="search" class="form-control" placeholder="Search...">
-    </div>
+    </div> -->
     <nav class="nav">
       <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
       <a href="" class="nav-link"><i data-feather="grid"></i></a>
