@@ -7,7 +7,6 @@ import { TransactionHistory, TransactionResult } from 'src/app/models/transactio
 import { USER } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { AuthProvider } from '../auth/auth';
-import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +19,7 @@ export class TransactionProvider {
   public response: any;
   public user!: USER;
   public headers: any;
-  public token = "8t01gc14r1nd8r45s9t13rfj8228120225qmp03dhu9q3bj0g4h90584wo121327";
+  // public token = "8t01gc14r1nd8r45s9t13rfj8228120225qmp03dhu9q3bj0g4h90584wo121327";
   public endpoints = ENDPOINTS;
   constructor(
     private data: DataProvider,
@@ -28,21 +27,13 @@ export class TransactionProvider {
     private route: Router,
     private auth: AuthProvider,
   ) {
-    this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
+    this.auth.setUser();
+    this.user =  JSON.parse(localStorage.getItem('user_info') || '{}');
     console.log('This is the new user => ', this.user);
-    console.log('This is the new user => ', this.user.BearerToken);
   }
 
   ngOnInit(): void {
-   
-    // this.user = JSON.parse(localStorage.getItem('user_info') || '{}');
 
-    // if (this.user) {
-    //   console.log(this.user);
-    // } else {
-    //   this.route.navigate(['/register']);
-    // }
-    // this.auth.setUser();
   }
 
   
@@ -69,10 +60,10 @@ export class TransactionProvider {
     });
   }
 
-  public getDatabundlePackages() {
+  public async getDatabundlePackages() {
     console.log("Bearer token being used =>>>", this.auth.user.BearerToken);
     this.setHearder();
-    this.data
+   await this.data
       .requester(this.endpoint.databundlepackages, {}, this.headers)
       .then(
         (response: any) => {
@@ -181,7 +172,7 @@ export class TransactionProvider {
         return true;
       } else {
         this.utilities.alert('error', 'Error!', transaction.message);
-        return true;
+        return false;
       }
     }
 

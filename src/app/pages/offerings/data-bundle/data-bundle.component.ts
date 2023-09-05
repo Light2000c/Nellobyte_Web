@@ -49,6 +49,7 @@ export class DataBundleComponent implements OnInit {
       Amount: ['', Validators.required],
     });
 
+    this.form.controls.Amount.disable();
     this.form.controls.Network.valueChanges.subscribe((value) => {
       this.setDataBundlePackages(value);
       this.setMobileNetwork(value)

@@ -21,6 +21,7 @@ import { TransactonsComponent } from './pages/transactons/transactons.component'
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
 import { AuthGuard } from './providers/auth/authguard';
+import { HelpComponent } from './pages/help/help.component';
 
 const routes: Routes = [
   {
@@ -106,10 +107,20 @@ const routes: Routes = [
     path: 'Transaction/:requestID',
     component: TransactionDetailComponent,
   },
+  {
+    path: 'help',
+    component: HelpComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '',
+   redirectTo: 'home',
+   pathMatch: 'full',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true}),],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

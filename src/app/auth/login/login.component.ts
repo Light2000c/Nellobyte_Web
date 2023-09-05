@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public submitAttempt!: boolean;
   public error!: string;
   public busy!: boolean;
+  public inputType: string = "password";
 
   constructor(private formBuilder: FormBuilder, private auth: AuthProvider) {}
 
@@ -49,4 +50,12 @@ export class LoginComponent implements OnInit {
       }
     }
   }
+
+  public showPassword(){
+    this.inputType = "text";
+ }
+
+ public hidePassword(){
+   this.inputType = "password";
+}
 }

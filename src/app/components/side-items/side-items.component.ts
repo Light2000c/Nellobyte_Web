@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-items',
@@ -8,18 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class SideItemsComponent implements OnInit {
 
   public quickLinks = [
-    { name: 'Airtime Recharge', icon: 'fa-mobile', link: ''},
-    { name: 'Buy Databundle', icon: 'fa-globe', link: ''},
-    { name: 'Electrical Bill', icon: 'fa-bolt', link: ''},
-    { name: 'CableTv Recharge', icon: 'fa-tv', link: ''},
-    { name: 'Card Printing', icon: 'fa-print', link: ''},
-    { name: 'Fund Betting', icon: 'fa-wallet', link: ''},
-    { name: 'Waec Epin', icon: 'fa-sticky-note', link: ''},
+    { name: 'Airtime Recharge', icon: 'fa-mobile', link: 'BuyAirtime'},
+    { name: 'Buy Databundle', icon: 'fa-globe', link: 'BuyDatabundle'},
+    { name: 'Electrical Bill', icon: 'fa-bolt', link: 'BuyElectricity'},
+    { name: 'CableTv Recharge', icon: 'fa-tv', link: 'BuyCableTV'},
+    { name: 'Card Printing', icon: 'fa-print', link: 'EpinGenerator'},
+    { name: 'Fund Betting', icon: 'fa-wallet', link: 'BuyBetting'},
+    { name: 'Waec Epin', icon: 'fa-sticky-note', link: 'BuyWAEC'},
   ]
 
-  constructor() { }
+  constructor(
+    public route: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+  public navigatePage(url: any){
+    this.route.navigate([url])
   }
 
 }

@@ -1,19 +1,23 @@
 <app-header>
     <div class="content-body card vh-100">
-      <div class="d-sm-flex align-items-center justify-content-between">
-        <div>
+      <div class="d-sm-flex align-items-center justify-content-between mb-3">
+        <div class="page-title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-style1 mg-b-10">
               <li class="breadcrumb-item">
-                <a href="#" style="color: #e82687">TRANSACTIONS</a>
+                <a href="" style="color: hsl(226, 87%, 30%)">MY ACCOUNT</a>
               </li>
-              <li class="breadcrumb-item active text-dark" aria-current="page">
-                TRANSACTION DETAILS
+              <li
+                class="breadcrumb-item active text-dark"
+                aria-current="page"
+              >
+              TRANSACTION DETAILS
               </li>
             </ol>
           </nav>
-          <!-- <h4 class="mg-b-0 ">{{ title }}</h4> -->
+          <!-- <h4 class="mg-b-0 tx-spacing--1">{{ title }}</h4> -->
         </div>
+        <div class="d-none d-md-block"></div>
       </div>
   
       <div >
@@ -23,11 +27,11 @@
               class="card-header pd-t-20 d-sm-flex align-items-start justify-content-between bd-b-0 pd-b-0 mb-4 pb-3 border-bottom"
             >
               <div class="">
-                <h6 class="mg-b-4" style="color: #041f79">TRANSACTION RECEIT</h6>
+                <h6 class="mg-b-4" style="color: #041f79">TRANSACTION DETAILS</h6>
               </div>
             </div>
 
-            <div id="dataToExport" class="row container"  #dataToExport>
+            <div id="dataToExport" class="row container" *ngIf="transactionDetails"  #dataToExport>
               <div class="col-sm-6 col-lg-6 ">
                 <p><strong>Transaction Type</strong>  -  Airtime Recharge </p>
                 <p><strong>Transaction Date</strong> - {{ convertDate(transactionDetails?.transaction_date) }}</p>
@@ -35,13 +39,14 @@
               <div class="col-sm-6 col-lg-6  border-left">
                 <div>
                <p ><strong>Request ID</strong> - {{ transactionDetails?.request_id }}</p>
+               <p ><strong>Product Description</strong> - {{ transactionDetails?.product_description }}</p>
                <p><strong>Transaction Status</strong> - {{ checkStatus(transactionDetails?.transaction_status).title }}</p>
                <p><strong>Customer ID</strong> - {{ transactionDetails?.customer_id }}</p>
                <p><strong>Transaction Amount</strong> - ₦{{ transactionDetails?.product_amount }}</p>
                <p> <strong>Amount Charged</strong> - ₦{{ transactionDetails?.amount_charged}}</p>
                </div>
                 <div>
-                  <button (click)="downloadAsPDF()" class="btn btn-primary btn-sm">Download Receit</button>
+                  <button (click)="generateReceipt()" class="btn btn-primary btn-sm">Download Receit</button>
                 </div>
               </div>
             </div>

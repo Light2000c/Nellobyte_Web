@@ -24,6 +24,11 @@ export class TransactonsComponent implements OnInit {
   public count: Number = 0;
   public from: any = "";
   public to: any = "";
+  public page: any = 1;
+  public counter: any = 0;
+  public pageSize: any = 10;
+
+
 
   constructor(
     private data: DataProvider,
@@ -145,6 +150,10 @@ export class TransactonsComponent implements OnInit {
 
   public viewDetails(requestID: any){
    this.route.navigate(['/Transaction', requestID]);
+  }
+
+  public onPageChange(event: any){
+    this.page = event;
   }
 
 }

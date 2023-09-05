@@ -21,6 +21,9 @@ import { ActivatedRoute } from '@angular/router';
 
 export class TransactionDetailComponent implements OnInit {
 
+
+	pdfObj: pdfMake = null;
+
   public transactionDetails!: TransactionHistory;
   public requestID!: any;
 
@@ -78,17 +81,93 @@ export class TransactionDetailComponent implements OnInit {
   }
 
 
-  public downloadAsPDF() {
-    const doc = new jsPDF();
-   
-    const pdfTable = this.dataToExport.nativeElement;
- 
-    var html = htmlToPdfmake(pdfTable.innerHTML);
-     
-    const documentDefinition = { content: html };
-    // pdfMake.createPdf(documentDefinition).download(); 
-    pdfMake.createPdf(documentDefinition).open(); 
-     
-  }
+
+  public createPDF(){
+
+   let body: any = [
+    [{ text: 'Transaction Description:', style: 'tt' }, { text: this.transactionDetails.product_description, style: 'bb' }],
+    [{ text: 'Transaction Status:', style: 'tt' }, { text: this.checkStatus(this.transactionDetails.transaction_status).title, style: 'bb' }],
+    [{ text: 'Customer ID:', style: 'tt' }, { text: this.transactionDetails.customer_id, style: 'bb' }],
+    [{ text: 'Transaction Amount:', style: 'tt' }, { text: '₦' + this.transactionDetails.product_amount, style: 'bb' }],
+    [{ text: 'Date Generated:', style: 'tt' }, { text: this.generateCurrentDate(), style: 'bb' }],
+   ];
+
+      var docDefinition = {
+        content: [
+          { text: 'Transaction Receipt', style: 'headers' },
+          { text: 'ID: ' + this.transactionDetails.request_id, style: 'id' },
+          { text: 'Date: ' + this.formatDate(this.transactionDetails.transaction_date), style: 'date' },
+          {
+            style: 'tablestyles',
+            table: {
+              headerRows: 1,
+              widths: ['40%', '40%',],
+  
+              body: body,
+            },
+  
+            layout: {
+            }
+          }
+        ],
+  
+        styles: {
+          tablestyles: {
+            margin: [105, 0, 45, 50],
+          },
+  
+          tt: {
+            margin: [0, 7, 0, 7],
+          },
+  
+          bb: {
+            margin: [0, 7, 0, 7],
+            alignment: 'right',
+  
+          },
+  
+          headers: {
+            margin: [0, 50, 0, 0],
+            fontSize: 25,
+            alignment: 'center',
+            bold: true,
+          },
+  
+  
+          id: {
+            alignment: 'center',
+            bold: true,
+          },
+  
+          date: {
+            margin: [0, 0, 0, 20],
+            alignment: 'center',
+            bold: true,
+          }
+        }
+      };
+  
+      this.pdfObj = pdfMake.createPdf(docDefinition);
+}
+
+public async generateReceipt(){
+  await this.createPDF();
+  this.pdfObj.open();
+}
+
+
+public formatDate(accepteDate: string){
+  const date = new Date(accepteDate);
+  const formated_date = date.toLocaleString();
+  return formated_date;
+}
+
+
+
+generateCurrentDate() {
+  const date = new Date;
+  const formated_date = date.toLocaleString();
+  return formated_date;
+}
 
 }

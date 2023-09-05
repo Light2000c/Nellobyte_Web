@@ -33,6 +33,8 @@ import { DeveloperApiComponent } from './pages/settings/developer-api/developer-
 import { SecurityComponent } from './pages/settings/security/security.component';
 import { TransactonsComponent } from './pages/transactons/transactons.component';
 import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
+import { HelpComponent } from './pages/help/help.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { TransactionDetailComponent } from './pages/transaction-detail/transacti
     SecurityComponent,
     TransactonsComponent,
     TransactionDetailComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { TransactionDetailComponent } from './pages/transaction-detail/transacti
     FormsModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

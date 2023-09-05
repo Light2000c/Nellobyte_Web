@@ -48,4 +48,13 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  public navigatePage(){
+    this.route.navigate(['/BuyAirtime']);
+  }
+
+
+  public setActiveRoute(){
+   return this.route.isActive;
+  }
+
 }

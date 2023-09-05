@@ -5,7 +5,7 @@
 
  <div class="row no-gutters">
   <div class="col-4 p-1" *ngFor="let quicklink of quickLinks">
-    <div class="card text-center align-self-middle pt-3" style="min-height: 100%;">
+    <div class="card text-center align-self-middle pt-3" (click)="navigatePage(quicklink.link)" style="min-height: 100%;">
       <i [class]="'fa '+ quicklink.icon +' icn mb-2'"></i>
       <p>{{ quicklink.name }}</p>
     </div>
@@ -56,14 +56,31 @@
 
 
 <div class="card shadow border-0 mt-2" style="height: 100%">
-  <div class="card-body pd-y-20 pd-x-25">
-    <h6>HELP DESK</h6>
-    <p>
-      Open a ticket for complaint, feedback or unresolved issues
-    </p>
-    <a href="" class="tx-medium"
-      >Click Here<i class="icon ion-md-arrow-forward mg-l-5"></i
-    ></a>
+  <div class="card-body">
+            <!-- small screen size -->
+            <div class="material-wrapper">
+              <div class="">
+                <div class="icon-wrapper">
+                  <i
+                    class="fa fa-exclamation-circle start-icons2 m-3"
+                    style="color: #1f2895"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+              </div>
+              <div class="wrapper-text">
+                <h6 class="">HELP DESK</h6>
+                <p>
+                  Open a ticket for complaint, feedback or unresolved issues
+                </p>
+                <p class="mt-2">
+                  <a href="" class="tx-medium"
+                    >Click Here<i class="icon ion-md-arrow-forward mg-l-5"></i
+                  ></a>
+                </p>
+              </div>
+            </div>
+            <!-- small screen size -->
   </div>
   <!-- card-body -->
 </div>

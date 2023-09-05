@@ -1,0 +1,168 @@
+<app-header>
+  <div class="content-body card">
+    <div class="d-sm-flex align-items-center justify-content-between">
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item">
+              <a href="#" style="color: #e82687">MYACCOUNT</a>
+            </li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">
+              HELP
+            </li>
+          </ol>
+        </nav>
+        <h4 class="mg-b-0">{{ title }}</h4>
+      </div>
+    </div>
+
+    <div class="media row">
+      <div class="col-lg-8 mb-5">
+        <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+          <div class="pd-t-20 wd-100p">
+            <form [formGroup]="form" (ngSubmit)="send()">
+              <div class="row">
+                <div class="col form-group">
+                  <div class="d-flex justify-content-between mg-b-5">
+                    <label class="mg-b-0-f">Email</label>
+                  </div>
+                  <input
+                    formControlName="Email"
+                    type="text"
+                    class="form-control bg-light"
+                    placeholder="example@gmail.com"
+                    [class.invalid]="
+                      !form.controls.Email.valid && submitAttempt
+                    "
+                    required
+                  />
+                  <small
+                    class="text-danger"
+                    *ngIf="!form.controls.Email.valid && submitAttempt"
+                    >Please email field is required</small
+                  >
+                </div>
+
+                <div class="col form-group">
+                  <div class="d-flex justify-content-between mg-b-5">
+                    <label class="mg-b-0-f">Subject</label>
+                  </div>
+                  <input
+                    formControlName="Subject"
+                    type="number"
+                    class="form-control bg-light"
+                    placeholder="Subject"
+                    [class.invalid]="
+                      !form.controls.Subject.valid && submitAttempt
+                    "
+                  />
+                  <small
+                    class="text-danger"
+                    *ngIf="!form.controls.Subject.valid && submitAttempt"
+                    >The subject field is required</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Category</label>
+                <select
+                  formControlName="Category"
+                  type="text"
+                  class="form-control bg-light"
+                  placeholder="Enter your email address"
+                  [class.invalid]="
+                    !form.controls.Category.valid && submitAttempt
+                  "
+                >
+                  <option selected value="">Select a Category</option>
+                  <option value="MTN">Airtime/Databundle</option>
+                  <option value="MTN">Electricity</option>
+                  <option value="MTN">Cable TV</option>
+                  <option value="MTN">Recharge Card</option>
+                  <option value="MTN">WAEC Epin</option>
+                  <option value="MTN">Airtime E-pin</option>
+                  <option value="MTN">Data E-pin</option>
+                  <option value="MTN">Wallet Funding</option>
+                </select>
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.Category.valid && submitAttempt"
+                  >Please select a Category</small
+                >
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                  formControlName="PhoneNumber"
+                  type="tel"
+                  class="form-control bg-light"
+                  placeholder="Phone Number"
+                  [class.invalid]="
+                    !form.controls.PhoneNumber.valid && submitAttempt
+                  "
+                />
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.PhoneNumber.valid && submitAttempt"
+                  >Please enter a valid phone number</small
+                >
+              </div>
+              <div class="form-group">
+                <label>Transaction ID</label>
+                <input
+                  formControlName="TransactionID"
+                  type="tel"
+                  class="form-control bg-light"
+                  placeholder="Transaction ID"
+                  [class.invalid]="
+                    !form.controls.TransactionID.valid && submitAttempt
+                  "
+                />
+                <small
+                  class="text-danger"
+                  *ngIf="!form.controls.TransactionID.valid && submitAttempt"
+                  >The transaction ID field is required</small
+                >
+              </div>
+              <div class="form-group">
+                <label>Date</label>
+                <input
+
+                  formControlName="Amount"
+                  type="datetime-local"
+                  class="form-control bg-light"
+                  placeholder="Date"
+                />
+                <small
+                class="text-danger"
+                *ngIf="!form.controls.Date.valid && submitAttempt"
+                >The date field is required</small
+              >
+              </div>
+
+              <div class="form-group">
+                <label>Further Comments</label>
+                <textarea formControlName="Description"  class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                <small
+                class="text-danger"
+                *ngIf="!form.controls.TransactionID.valid && submitAttempt"
+                >The description field is required</small
+              >
+              </div>
+
+              <app-submit-button name="Submit"></app-submit-button>
+            </form>
+          </div>
+        </div>
+        <!-- sign-wrapper -->
+      </div>
+      <!-- media-body -->
+
+      <div class="col-lg-4">
+        <app-side-items></app-side-items>
+      </div>
+    </div>
+    <!-- media -->
+  </div>
+</app-header>

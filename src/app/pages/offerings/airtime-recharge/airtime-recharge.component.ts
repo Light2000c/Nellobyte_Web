@@ -47,6 +47,7 @@ export class AirtimeRechargeComponent implements OnInit {
       Amount: ['', Validators.required],
       RequestID: ['', Validators.required],
     });
+    this.form.controls.Amount.disable();
     this.form.controls.Network.valueChanges.subscribe((value) => {
       this.setMobileNetwork(value);
       // this.setRequestID();
@@ -117,6 +118,8 @@ export class AirtimeRechargeComponent implements OnInit {
         this.reset();
         this.transaction.updateWalletBalance();
         this.viewDetails();
+      }else{
+        this.loading = false;
       }
 
     }

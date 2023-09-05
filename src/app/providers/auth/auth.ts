@@ -4,8 +4,6 @@ import { HttpService } from 'src/app/services/http/http.service'
 import { ENDPOINTS } from '../data/endpoints';
 import { USER } from 'src/app/models/user.model';
 import { DataProvider } from '../data/data';
-import { TransactionProvider } from '../transaction/transaction';
-import { TransactionResult } from 'src/app/models/transaction.model';
 import { Router } from '@angular/router';
 
 

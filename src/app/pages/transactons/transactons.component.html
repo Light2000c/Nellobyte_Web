@@ -1,19 +1,23 @@
 <app-header>
   <div class="content-body card vh-100">
-    <div class="d-sm-flex align-items-center justify-content-between">
-      <div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-3">
+      <div class="page-title">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-style1 mg-b-10">
             <li class="breadcrumb-item">
-              <a href="#" style="color: #e82687">MYACCOUNT</a>
+              <a href="" style="color: hsl(226, 87%, 30%)">MY ACCOUNT</a>
             </li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">
-              TRANSACTION HISTORY
+            <li
+              class="breadcrumb-item active text-dark"
+              aria-current="page"
+            >
+             TRANSACTION HISTORY
             </li>
           </ol>
         </nav>
-        <!-- <h4 class="mg-b-0 ">{{ title }}</h4> -->
+        <!-- <h4 class="mg-b-0 tx-spacing--1">{{ title }}</h4> -->
       </div>
+      <div class="d-none d-md-block"></div>
     </div>
 
     <div >
@@ -51,7 +55,7 @@
               <thead>
                 <tr>
                   <th>Customer ID</th>
-                  <th class="">Product Amount</th>
+                  <th class="">Product Description</th>
                   <th class="">Amount Charged</th>
                   <th class="">Transaction Status</th>
                   <th class="">Transaction Date</th>
@@ -59,9 +63,9 @@
                 </tr>
               </thead>
               <tbody *ngIf="!loader && transactions !=null">
-                <tr *ngFor="let transaction of transactions">
+                <tr *ngFor="let transaction of transactions | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: counter} let i = index">
                   <td>{{ transaction?.customer_id }}</td>
-                  <td>{{ transaction?.product_amount }}</td>
+                  <td>{{ transaction?.product_description }}</td>
                   <td>{{ transaction?.amount_charged}}</td>
                   <td *ngIf="!checkStatus(transaction?.transaction_status).status; else  success"><span class="badge badge-danger">{{ checkStatus(transaction?.transaction_status).title }}</span></td>
                   
@@ -74,6 +78,12 @@
                 </tr>
               </tbody>
             </table>
+            <div class="d-flex justify-content-end m-5" *ngIf="!loader && transactions !=null">
+              <div>
+              <pagination-controls previousLabel="Prev" nextLabel="Next"
+              (pageChange)="onPageChange($event)"  (pageChange)="page = $event" [responsive]="true"></pagination-controls>
+            </div>
+            </div>
           </div>
           <!-- table-responsive -->
         </div>
