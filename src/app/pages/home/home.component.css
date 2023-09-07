@@ -66,6 +66,15 @@
 
 }
 
+.footer-wrapper{
+
+}
+
+.footer-wrapper a{
+  color: #4e77ff;
+  font-size: 16px;
+}
+
 
 
 @media only screen and (max-width: 762px){

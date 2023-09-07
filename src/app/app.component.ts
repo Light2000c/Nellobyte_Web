@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import * as $ from 'jquery';
+import { AuthProvider } from './providers/auth/auth';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
 
   constructor(
    public route: Router,
-   public zone: NgZone
+   public zone: NgZone,
+   public auth: AuthProvider,
   ){
     
   }
@@ -72,5 +74,7 @@ this.recallJsFuntions();
   ngOnDestroy() {
     this.routerSubscription.unsubscribe();
   }
+
+
 
 }
