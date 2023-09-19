@@ -36,10 +36,10 @@ export class TransactonsComponent implements OnInit {
     private route: Router
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     // this.convertTarget();
     this.loader = true;
-    await this.loadTransaction();
+    this.loadTransaction();
     setTimeout(() => {
       this.loader = false;
     }, 3000);

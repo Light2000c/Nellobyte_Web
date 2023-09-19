@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-security',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecurityComponent implements OnInit {
 
-  constructor() { }
+  public form!: FormGroup;
+
+  constructor(
+    public formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      CurrentPassword: [],
+      NewPassword: [],
+    });
   }
+
+
+  public send(){
+    
+  }
+
+
 
 }

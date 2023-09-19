@@ -25,40 +25,42 @@
       <div class="col-lg-8 mb-5">
 
         <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+          <form [formGroup]="form" (ngSubmit)="send()">
           <div class="pd-t-20 wd-100p">
-
             <div class="form-group">
-              <label>Payment Option</label>
-              <select type="text" class="form-control bg-light">
-                <option>Wallet Balance</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <div class="d-flex justify-content-between mg-b-5">
                 <label class="mg-b-0-f">Electricity Company</label>
-              </div>
-              <input type="password" class="form-control bg-light" placeholder="Enter your password">
+              <select formControlName="ElectricityCompany" class="form-control bg-light" type="text" class="form-control bg-light">
+                <option value="" selected>Please select electricity companyy</option>
+              </select>
+              <small *ngIf="!form.controls.ElectricityCompany.valid && submitAttempt" class="text-danger">Electricity Company is required</small>
             </div>
             <div class="form-group">
               <label>Meter Type</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your firstname">
+              <select formControlName="MeterType" class="form-control bg-light" type="text" class="form-control bg-light">
+                <option value="" selected>Select meter type</option>
+              </select>
+              <small *ngIf="!form.controls.MeterType.valid && submitAttempt" class="text-danger">Meter Type is required</small>
             </div>
             <div class="form-group">
-              <label>Meter Number -> </label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your firstname">
+              <label>Meter Number</label>
+              <input formControlName="MeterNumber" type="text" class="form-control bg-light" placeholder="Meter Number">
+              <small *ngIf="!form.controls.MeterNumber.valid && submitAttempt" class="text-danger">Meter Number is required</small>
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your lastname">
+              <input formControlName="PhoneNumber" type="text" class="form-control bg-light" placeholder="Phone Number">
+              <small *ngIf="!form.controls.PhoneNumber.valid && submitAttempt" class="text-danger">Phone Number length must be 11 or greater</small>
             </div>
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your lastname">
+              <input formControlName="Amount" type="text" class="form-control bg-light" placeholder="Amount">
+              <small *ngIf="!form.controls.Amount.valid && submitAttempt" class="text-danger">Amount is required</small>
             </div>
 
            <app-submit-button name="Buy Now"></app-submit-button>
 
           </div>
+        </form>
         </div><!-- sign-wrapper -->
 
       </div><!-- media-body -->

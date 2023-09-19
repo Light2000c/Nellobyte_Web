@@ -22,6 +22,7 @@ import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.co
 import { WithdrawCommissionComponent } from './pages/withdraw-commission/withdraw-commission.component';
 import { AuthGuard } from './providers/auth/authguard';
 import { HelpComponent } from './pages/help/help.component';
+import { JambEpinComponent } from './pages/offerings/jamb-epin/jamb-epin.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
    {
     path: 'BuyWAEC',
     component: WaecEpinComponent,
+  },
+  {
+    path: 'BuyJAMB',
+    component: JambEpinComponent,
   },
   {
     path: 'Deposit',

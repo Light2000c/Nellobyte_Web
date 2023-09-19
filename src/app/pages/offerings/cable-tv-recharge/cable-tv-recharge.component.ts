@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cable-tv-recharge',
@@ -8,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class CableTVRechargeComponent implements OnInit {
 
   title: String = "Pay DStv, GOtv and StarTimes Subscription - Instant Activation";
+  form!: FormGroup;
+  public submitAttempt!: Boolean;
 
-  constructor() { }
+  constructor(
+    public formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+
+    this.form = this.formBuilder.group({
+      CableTV: ["", Validators.required],
+      Package: ["", Validators.required],
+      IUCNumber: ["", Validators.required],
+      PhoneNumber: ["", Validators.compose([Validators.required, Validators.minLength(11) ])],
+      Amount: ["", Validators.required],
+    });
+  }
+
+  public send(){
+    this.submitAttempt = true;
   }
 
 }

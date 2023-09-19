@@ -25,30 +25,30 @@
       <div class="col-lg-8 mb-5">
 
         <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+          <form [formGroup]="form" (ngSubmit)="send()">
           <div class="pd-t-20 wd-100p">
-
             <div class="form-group">
-              <label>Payment Option</label>
-              <input type="email" class="form-control bg-light" placeholder="Enter your email address">
-            </div>
-            <div class="form-group">
-              <div class="d-flex justify-content-between mg-b-5">
-                <label class="mg-b-0-f">Exam Type</label>
-              </div>
-              <input type="password" class="form-control bg-light" placeholder="Enter your password">
+                <label class="">Exam Type</label>
+                <select formControlName="ExamType" type="text" class="form-control bg-light">
+                  <option value="" selected>Select Exam Type</option>
+                </select>
+                <small *ngIf="!form.controls.ExamType.valid && submitAttempt" class="text-danger">Exam Type is required</small>
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your firstname">
+              <input formControlName="PhoneNumber" type="tel" class="form-control bg-light" placeholder="Phone Number">
+              <small *ngIf="!form.controls.PhoneNumber.valid && submitAttempt" class="text-danger">Phone Number length must be 11 or greater</small>
             </div>
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your lastname">
+              <input formControlName="Amount" type="number" class="form-control bg-light" placeholder="Amount">
+              <small *ngIf="!form.controls.Amount.valid && submitAttempt" class="text-danger">Amount is required</small>
             </div>
 
-            <app-submit-button name="Pay Now"></app-submit-button>
+            <app-submit-button name="Pay Now" [loading]="loading"></app-submit-button>
 
           </div>
+        </form>
         </div><!-- sign-wrapper -->
 
       </div><!-- media-body -->

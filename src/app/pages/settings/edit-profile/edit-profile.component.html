@@ -1,22 +1,25 @@
 <div class="media row">
   <div class="col-lg-8 mb-5">
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-      Please make edits to only changeable fields.
+      Please only make changes to fields you want to edit.
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
     <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+      <form [formGroup]="form"  (ngSubmit)="send()">
       <div class="pd-t-20 wd-100p">
         <div class="form-group">
           <div class="d-flex justify-content-between mg-b-5">
             <label class="mg-b-0-f">COMPANY NAME</label>
           </div>
           <input
-            type="password"
+          formControlName="CompanyName"
+            type="text"
             class="form-control bg-light"
             placeholder=""
+            [class.input-field]="!form.controls.CompanyName.valid && submitAttempt"
           />
         </div>
           <div class="form-group">
@@ -24,9 +27,11 @@
               <label class="mg-b-0-f">FIRST NAME</label>
             </div>
             <input
-              type="password"
+            formControlName="FirstName"
+              type="text"
               class="form-control bg-light"
               placeholder=""
+              [class.input-field]="!form.controls.FirstName.valid && submitAttempt"
             />
           </div>
           <div class="form-group">
@@ -34,9 +39,11 @@
               <label class="mg-b-0-f">LAST NAME</label>
             </div>
             <input
-              type="password"
+            formControlName="LastName"
+              type="text"
               class="form-control bg-light"
               placeholder=""
+              [class.input-field]="!form.controls.LastName.valid && submitAttempt"
             />
           </div>
         <div class="form-group">
@@ -44,22 +51,26 @@
             <label class="mg-b-0-f">EMAIL ADDRESS</label>
           </div>
           <input
-            type="password"
+          formControlName="EmailAddress"
+            type="email"
             class="form-control bg-light"
             placeholder=""
+            [class.input-field]="!form.controls.EmailAddress.valid && submitAttempt"
           />
         </div>
         <div class="row">
         <div class="col form-group">
           <label>PHONE NUMBER</label>
           <input
-            type="text"
-            class="form-control bg-light"
+          formControlName="PhoneNumber"
+            type="tell"
+            class="form-control bg-light "
             placeholder=""
+            [class.input-field]="!form.controls.PhoneNumber.valid && submitAttempt"
           />
         </div>
         <div class="col form-group">
-          <label>SEX</label>
+          <label>SEX (Optional)</label>
           <input
             type="text"
             class="form-control bg-light"
@@ -78,7 +89,7 @@
           />
         </div>
         <div class="col form-group">
-          <label>STATE</label>
+          <label>STATE (Optional)</label>
           <input
             type="text"
             class="form-control bg-light"
@@ -92,6 +103,7 @@
 
         <app-submit-button name="SAVE CHANGES"></app-submit-button>
       </div>
+      </form>
     </div>
     <!-- sign-wrapper -->
   </div>

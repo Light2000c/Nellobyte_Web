@@ -25,44 +25,44 @@
       <div class="col-lg-8 mb-5">
 
         <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+          <form [formGroup]="form" (ngSubmit)="send()">
           <div class="pd-t-20 wd-100p">
-
-            <div class="form-group">
-              <label>Payment Option</label>
-              <select type="text" class="form-control bg-light">
-                <option>Wallet Balance</option>
-              </select>
-            </div>
             <div class="form-group">
               <div class="d-flex justify-content-between mg-b-5">
                 <label class="mg-b-0-f">Tv Subscription</label>
               </div>
-              <select type="text" class="form-control bg-light">
-                <option>Select Tv</option>
+              <select formControlName="CableTV" type="text" class="form-control bg-light">
+                <option value="" selected>Select Cable Tv</option>
               </select>
+              <small *ngIf="!form.controls.CableTV.valid && submitAttempt" class="text-danger">Please select a cable TV</small>
             </div>
             <div class="form-group">
               <label>Bouquet/Package</label>
-              <select type="text" class="form-control bg-light">
-                <option>Select a Package</option>
+              <select formControlName="Package" type="text" class="form-control bg-light">
+                <option value="" selected>Select a Package</option>
               </select>
+              <small *ngIf="!form.controls.Package.valid && submitAttempt" class="text-danger">Please select a package</small>
             </div>
             <div class="form-group">
               <label>SMARTCARD/IUC NUMBER -></label>
-              <input type="text" class="form-control bg-light" placeholder="IUC Number">
+              <input formControlName="IUCNumber" type="number" class="form-control bg-light" placeholder="IUC Number">
+              <small *ngIf="!form.controls.IUCNumber.valid && submitAttempt" class="text-danger">SMARTCARD/IUC Number is required</small>
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="text" class="form-control bg-light" placeholder="Phone Number">
+              <input formControlName="PhoneNumber" type="tel" class="form-control bg-light" placeholder="Phone Number">
+              <small *ngIf="!form.controls.PhoneNumber.valid && submitAttempt" class="text-danger">Phone Number length must be 11 or greater</small>
             </div>
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" class="form-control bg-light" placeholder="Enter your lastname">
+              <input formControlName="Amount" type="number" class="form-control bg-light" placeholder="Enter your lastname">
+              <small *ngIf="!form.controls.Amount.valid && submitAttempt" class="text-danger">Amount is required</small>
             </div>
 
             <app-submit-button name="Pay Now"></app-submit-button>
 
           </div>
+        </form>
         </div><!-- sign-wrapper -->
 
       </div><!-- media-body -->

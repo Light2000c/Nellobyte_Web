@@ -83,7 +83,6 @@ export class AuthProvider{
     }catch(err){
       return {message: "Something went wrong, Please try again later"};
     }
-    //  console.log(response);
      return;
     
   }
@@ -94,14 +93,6 @@ export class AuthProvider{
     console.log(this.user);
   }
 
-  // public checkUser(){
-  //   let user = JSON.parse(localStorage.getItem('user_info') || '{}');
-  //   if (user !== null) {
-  //     console.log("saved data still exist ->>> ");
-  //     this.setUser();
-  //   }
-
-  // }
 
   public checkUser(){
     this.isLoggedIn = localStorage.getItem('user_info') !== null;

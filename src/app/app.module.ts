@@ -35,6 +35,7 @@ import { TransactonsComponent } from './pages/transactons/transactons.component'
 import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { JambEpinComponent } from './pages/offerings/jamb-epin/jamb-epin.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SecurityComponent,
     TransactonsComponent,
     TransactionDetailComponent,
-    HelpComponent
+    HelpComponent,
+    JambEpinComponent
   ],
   imports: [
     BrowserModule,

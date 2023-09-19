@@ -1,1 +1,69 @@
-<p>security works!</p>
+
+<div class="media row">
+    <div class="col-lg-8 mb-5">
+      <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        Please only make changes to fields you want to edit.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+  
+      <div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
+        <Form [formGroup]="form"  (ngSubmit)="send()">
+        <div class="pd-t-20 wd-100p">
+          <div class="form-group">
+            <div class="d-flex justify-content-between mg-b-5">
+              <label class="mg-b-0-f">CURRENT PASSWORD</label>
+            </div>
+            <div class="input-group">
+            <input
+              type="password"
+              class="form-control bg-light"
+              placeholder=""
+            />
+            <div class="input-group-append">
+                <span  class="input-group-text" id="basic-addon2"><i class="fa fa-eye" ></i></span>
+              </div>
+            </div>
+          </div>
+            <div class="form-group">
+              <div class="d-flex justify-content-between mg-b-5">
+                <label class="mg-b-0-f">NEW PASSWORD</label>
+              </div>
+            <div class="input-group">
+              <input
+                type="password"
+                class="form-control bg-light"
+                placeholder=""
+              />
+              <div class="input-group-append">
+                <span  class="input-group-text" id="basic-addon2"><i class="fa fa-eye" ></i></span>
+              </div>
+            </div>
+        </div>
+
+            <div class="form-group">
+              <div class="d-flex justify-content-between mg-b-5">
+                <label class="mg-b-0-f">CONFIRM NEW PASSWORD</label>
+              </div>
+              <input
+                type="password"
+                class="form-control bg-light"
+                placeholder=""
+              />
+            </div>
+  
+          <app-submit-button name="SAVE CHANGES"></app-submit-button>
+        </div>
+    </Form>
+      </div>
+      <!-- sign-wrapper -->
+    </div>
+    <!-- media-body -->
+  
+    <div class="col-lg-4">
+      <app-side-items></app-side-items>
+    </div>
+  </div>
+  <!-- media -->
+  

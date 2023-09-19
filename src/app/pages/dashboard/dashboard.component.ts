@@ -14,12 +14,8 @@ import { TransactionProvider } from 'src/app/providers/transaction/transaction';
 })
 export class DashboardComponent implements OnInit {
 
-  // header = new HttpHeaders({
-  //   'Authorization': 'Bearer 8t01gc14r1nd8r45s9t13rfj8228120225qmp03dhu9q3bj0g4h90584wo121327',
-  //   'Content-Type': 'application/json',
-  // });
-
   routerSubscription: any;
+  public transactions!: any;
   
 
 
@@ -36,53 +32,18 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.auth.setUser();
     // this.transaction.updateWalletBalance(this.header);
-    // this.recallJsFuntions();
+    this.loadTransactions();
+    
   }
 
-  recallJsFuntions() {
-    this.routerSubscription = this.route.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(event => {
-        this.loadJQueryScripts();
-      });
+
+  public async loadTransactions(){
+    console.log('Started');
+    this.transactions = await this.transaction.getTransactionHistory();
+    console.log("transactions loaded on dashboard ===> ", this.transactions)
   }
 
-  public loadJQueryScripts() {
-    const scriptUrls = [
-      '/assets/web/lib/jquery/jquery.min.js',
-      '/assets/web/lib/bootstrap/js/bootstrap.bundle.min.js',
-      '/assets/web/lib/feather-icons/feather.min.js',
-      '/assets/web/lib/perfect-scrollbar/perfect-scrollbar.min.js',
-      '/assets/web/lib/jquery.flot/jquery.flot.js',
-      '/assets/web/lib/jquery.flot/jquery.flot.stack.js',
-      '/assets/web/lib/jquery.flot/jquery.flot.resize.js',
-      '/assets/web/lib/chart.js/Chart.bundle.min.js',
-      '/assets/web/lib/jqvmap/jquery.vmap.min.js',
-      '/assets/web/lib/jqvmap/maps/jquery.vmap.usa.js',
-      '/assets/web/assets/js/dashforge.js',
-      '/assets/web/assets/js/dashforge.aside.js',
-      '/assets/web/assets/js/dashforge.sampledata.js',
-      '/assets/web/lib/js-cookie/js.cookie.js',
-      '/assets/web/assets/js/dashboard-one.js',
-      '/assets/web/assets/js/dashforge.settings.js'
-    ];
 
-    scriptUrls.forEach(url => {
-      this.loadScripts(url)
-    });
-  }
-
-  public loadScripts(url: string) {
-    const script = document.createElement('script');
-    script.src = url;
-    script.async = false; // Load script synchronously
-    script.onload = () => {
-      this.zone.run(() => {
-        // Code to run after script is loaded (if needed)
-      });
-    };
-    document.head.appendChild(script);
-  }
 
 
 
